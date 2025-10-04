@@ -1,0 +1,5 @@
+recursive-include walmartBot *.*
+prune .idea
+prune .git
+prune .venv
+prune __pycache__
