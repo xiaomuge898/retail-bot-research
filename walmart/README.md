@@ -27,6 +27,10 @@ print(WalMart.current_proxy())
 # 查看request使用的代理
 print(WalMart.get_requests_proxy())
 ```
+### 注意！！！
+该风控可能由两种情况引起，一个是header检测，另一个是tls检测。
+目前已解决header检测风控，测试后发现可以正常获取数据，如果多线程获取数据任然平凡出现风控，请联系我，我将添加tls指纹功能
+
 ### 🛰️联系一下
 <img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/user-img/848103c0e57c4df88511da3bcc6465a6.jpeg" width="200"/>
 
