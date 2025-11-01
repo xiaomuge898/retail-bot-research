@@ -10,4 +10,9 @@
 1. 请根据不同平台项目内的README.md介绍，进行安装模块使用
 2. 若遇到无法安装的模块，请更换指定的python版本后，使用虚拟环境再次测试
 
+### 🛰️联系一下
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/user-img/848103c0e57c4df88511da3bcc6465a6.jpeg" width="200"/>
+
+### 💲打赏一下
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/user-img/22e0a80d5b552028d5887a13b0aa5ba78b3e82a7.jpg" width="600"/>
 
