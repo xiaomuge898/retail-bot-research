@@ -14,7 +14,7 @@ class WebSocketClient {
     };
 
     async get_api_v1_im_token(){
-        // 获取建立ws连接前所需要的参数
+        // 获取建立ws连接前所需要的参数【达人接口专用】
         const base = "https://affiliate.tiktokshopglobalselling.com/api/v1/oec/affiliate/seller/im/get/token";
         const params = {
             "shop_region": this.shop_info.shop_region,
@@ -42,14 +42,14 @@ class WebSocketClient {
         const data = await res.json();
         console.log(data);
         if (data?.code != 0 || !data?.data){
-            throw new Error(`[api/v1/oec/affiliate/seller/im/get/token]该接口请求异常，无法获取建立ws连接前所需要的参数，返回参数状态码为${data?.code}`);
+            throw new Error(`[api/v1/oec/affiliate/seller/im/get/token]该接口请求异常，【达人】无法获取建立ws连接前所需要的参数，返回参数状态码为${data?.code}`);
         }
         this.api_v1_im_token = data?.data;
         return data
     }
 
     async create_v1_im_conversation_create(creator_oec_id){
-        // 和达人建立聊天室ID
+        // 和达人建立聊天室ID【达人接口专用】
         const base = "https://oec-im-tt-sg.tiktokglobalshopv.com/api/v1/im/conversation/create";
         const params = {
             "biz_source": "shop_creator_shop",
@@ -115,30 +115,52 @@ class WebSocketClient {
 
 
     connect() {
-        if (!this.api_v1_im_token){
-            throw new Error(`请先调用get_api_v1_im_token方法获取建立ws连接所需的参数，然后再执行connect`);
+        if (!this.api_v1_im_token && !(this.api_v1_shop_im_token && this.shop_info_data)){
+            throw new Error(`【达人发信】请先调用 get_api_v1_im_token 方法获取建立ws连接所需的参数，然后再执行connect | 【买家发信】请先调用 get_api_v1_shop_im_user_get_info_list、get_api_v1_shop_im_token 方法获取建立ws连接所需的参数，然后再执行connect`);
         }
+
         // 发起连接
         if (!this.ws){
-            const url = new URL(this.api_v1_im_token.ws_url);
-            const params = {
-                "token": this.api_v1_im_token.token,
-                "aid": this.api_v1_im_token.app_id,
-                "fpid": this.api_v1_im_token.fp_id,
-                "device_id": this.api_v1_im_token.user.user_id,
-                "access_key": Me(`${this.api_v1_im_token.fp_id + this.api_v1_im_token.app_key + this.api_v1_im_token.user.user_id}f8a69f1719916z`),
-                "device_platform": 'web',
-                "version_code": this.api_v1_im_token.biz_service_id,
-                "websocket_switch_region": this.api_v1_im_token.shop_region,
-                "x-tt-env": this.api_v1_im_token.env,
+            if (this.api_v1_im_token){
+                const url = new URL(this.api_v1_im_token.ws_url);
+                const params = {
+                    "token": this.api_v1_im_token.token,
+                    "aid": this.api_v1_im_token.app_id,
+                    "fpid": this.api_v1_im_token.fp_id,
+                    "device_id": this.api_v1_im_token.user.user_id,
+                    "access_key": Me(`${this.api_v1_im_token.fp_id + this.api_v1_im_token.app_key + this.api_v1_im_token.user.user_id}f8a69f1719916z`),
+                    "device_platform": 'web',
+                    "version_code": this.api_v1_im_token.biz_service_id,
+                    "websocket_switch_region": this.api_v1_im_token.shop_region,
+                    "x-tt-env": this.api_v1_im_token.env,
+                }
+                url.search = new URLSearchParams(params).toString();
+                this.ws = new WebSocket(url.toString(), ['binary', 'base64', 'pbbp2']);
+            } else if (this.api_v1_shop_im_token && this.shop_info_data){
+                const url = new URL(this.api_v1_shop_im_token.websocket_url);
+                const params = {
+                    "token": this.api_v1_shop_im_token.token,
+                    "aid": "5341",
+                    "fpid": "92",
+                    "device_id": this.api_v1_shop_im_token.im_customer_service_id,
+                    "access_key": Me(`${"92" + "b42d99769353ce6304e74fb597e36e90" + this.api_v1_shop_im_token.im_customer_service_id}f8a69f1719916z`),
+                    "device_platform": "web",
+                    "version_code": "10000",
+                    "websocket_switch_region": this.shop_info_data.shop_region,
+                    "im_role": "2",
+                    "im_shop_id": this.shop_info_data.im_shop_id,
+                    "x-tt-env": this.api_v1_shop_im_token.env
+                };
+                url.search = new URLSearchParams(params).toString();
+                this.ws = new WebSocket(url.toString(), ['binary', 'base64', 'pbbp2']);
             }
-            url.search = new URLSearchParams(params).toString();
-            this.ws = new WebSocket(url.toString(), ['binary', 'base64', 'pbbp2']);
+
             this.ws.binaryType = "arraybuffer";
             this.ws.onopen = () => {
-                this.seqId = this.api_v1_im_token.biz_service_id;
+                this.seqId = this.api_v1_im_token?.biz_service_id || 10000;
                 // 连接建立时触发
-                console.log("✅ WebSocket 已连接:", url.toString());
+                console.log("✅ WebSocket 已连接");
+                this.ws.send("hi");
 
                 // 防止重复定时（若断开重连）
                 if (this.keepAliveTimer) clearInterval(this.keepAliveTimer);
@@ -253,7 +275,7 @@ class WebSocketClient {
         const n = this.inSignCommandList(struct.cmd) ? this.frontierSign() : {}
             , o = n
             , i = ve.create({
-            service: this.api_v1_im_token.frontier_service_id,
+            service: this.api_v1_im_token.frontier_service_id || this.api_v1_shop_im_token.biz_service_id,
             method: 1,
             headers: Object.entries(o).map((([e, t]) => ({
                 key: e,
@@ -573,6 +595,114 @@ class WebSocketClient {
         }
         throw new Error(`[api/v1/affiliate/notification/im/conversation/update]该接口请求异常，${tags}, 返回参数状态码为${data?.code}`);
     }
+
+    async get_api_v1_shop_im_user_get_info_list(){
+        // 获取当前商家的信息【买家接口专用】
+        const base = "https://api16-normal-sg.tiktokshopglobalselling.com/api/v1/shop_im/multi_shop/user/get_info_list";
+        const params = {
+            "locale": "zh-CN",
+            "language": "zh-CN",
+            "oec_seller_id": this.shop_info.oec_seller_id,
+            "aid": "6556",
+            "app_name": "i18n_ecom_shop",
+            "device_platform": "web",
+            "cookie_enabled": "true",
+            "screen_width": "1920",
+            "screen_height": "1080",
+            "browser_language": "zh-HK",
+            "browser_platform": "Win32",
+            "browser_name": "Mozilla"
+        }
+        const url = new URL(base);
+        url.search = new URLSearchParams(params).toString();
+        const res = await fetch(url.toString(), {
+            "headers": {
+                "accept": "*/*",
+                "x-tt-oec-region": this.shop_info.shop_region
+            },
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data?.code != 0 || !data?.data?.shop_infos){
+            throw new Error(`[api/v1/shop_im/multi_shop/user/get_info_list]该接口请求异常，无法获取当前商家的信息，返回参数状态码为${data?.code}`);
+        }
+        const targetShop = data?.data?.shop_infos.find(shop => shop.outer_shop_id === this.shop_info.oec_seller_id);
+        this.shop_info_data = targetShop;
+        return data
+    }
+
+    async get_api_v1_shop_im_token(){
+        // 获取建立ws连接前所需要的参数【买家接口专用】
+        const base = "https://api16-normal-sg.tiktokshopglobalselling.com/api/v1/shop_im/shop/user/get_token";
+        const params = {
+            "PIGEON_BIZ_TYPE": "1",
+            "cb_shop_region": this.shop_info.shop_region,
+            "aid": "6556",
+            "im_req_timestamp": new Date().getTime().toString(),
+            "device_platform": "pc",
+            "im_version_code": "8748"
+        }
+        const url = new URL(base);
+        url.search = new URLSearchParams(params).toString();
+        const res = await fetch(url.toString(), {
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "content-type": "application/json",
+            },
+            "body": null,
+            "method": "GET",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data?.code != 0 || !data?.data){
+            throw new Error(`[api/v1/shop_im/shop/user/get_token]该接口请求异常，【买家】无法获取建立ws连接前所需要的参数，返回参数状态码为${data?.code}`);
+        }
+        this.api_v1_shop_im_token = data?.data;
+        return data
+    }
+
+    async send_messages_per_user_init_v2_body(page){
+        /**
+         * 买家 获取买家列表的用户 结构体 （可以不用建立ws连接，但需要执行 get_api_v1_im_token）
+         *
+         * 发信息，表示我要获取用户列表【买家】
+         * @param {string} page - 翻页，0为第一页 10为第二页，以此递增
+         * 每次只能获取10个用户信息和10个用户的所有聊天记录
+         * 
+         * sender_role  1=买家信息 2=人工信息 3=机器人信息
+         * countdown  true=未回复  false=已回复
+         */
+        const url = "https://oec-im-tt-sg.tiktokglobalshopv.com/v2/message/get_by_user_init";
+        const data = {
+            "headers": {},
+            "body": {
+                "messages_per_user_init_v2_body": {
+                    "cursor": { "low": page, "high": 0, "unsigned": false }
+                }
+            },
+            "cmd": 203,
+            "sequence_id": {low: this.seqId, high: 0, unsigned: false},
+            "refer": 3,
+            "token": this.api_v1_shop_im_token.token,
+            "device_id": this.api_v1_shop_im_token.im_customer_service_id,
+            "sdk_version": "1.2.2",    // 买家只能用这个版本
+            "build_number": "5dd76f3:master",   // 买家只能用这个版本
+            "inbox_type": 0,
+            "device_platform": "web",
+            "auth_type": 2
+        };
+        console.log(`%c获取买家列表的用户 结构体`, 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);', data);
+        const ee = await this.send_request(url, 'POST', be(data).buffer);
+        console.log(`%c获取买家列表的用户 返回结果`, 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgb(0, 0, 0);', ee);
+        return ee;
+    }
+
 
     decrypt_biz_ext(uint8Arr){
         // 解码 biz_ext 参数，将 Uint8Array 数组转为字符串

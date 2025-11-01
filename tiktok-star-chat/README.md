@@ -4,6 +4,7 @@
 
 ### 方法功能都已经写好了，可以自己封装一下，无论是做成插件，还是用python自动化，都是不错的选择。
 
+## 【达人】发信方法如下
 1. 打开【 https://affiliate.tiktokshopglobalselling.com/api/v1/affiliate/account/info 】页面(可以省略很多的网络资源)
 2. 打开并复制 *00e72210e498b35e5268c6f6d4cec1ee.js* 文件的内容，直接粘贴到控制台中运行，然后把 *EncapsulateWebSocketClient.js* 文件中的内容也粘贴到控制台中运行
 3. 然后使用下面的代码进行一系列的操作即可
@@ -69,7 +70,43 @@ ws.set_guru_star(true, null, "达人ID,字符串类型")
 // 对某个达人添加存档，true修改未false则删除存档
 ws.set_guru_star(null, true, "达人ID,字符串类型")
 ```
-- 编码与解码
+## 【买家】发信方法如下
+1. 打开【 https://seller.tiktokshopglobalselling.com/api/v1/affiliate/account/info 】页面(可以省略很多的网络资源)
+2. 打开并复制 *00e72210e498b35e5268c6f6d4cec1ee.js* 文件的内容，直接粘贴到控制台中运行，然后把 *EncapsulateWebSocketClient.js* 文件中的内容也粘贴到控制台中运行
+3. 然后使用下面的代码进行一系列的操作即可
+- 常规操作
+```js
+// 实例化（不同的站点需要重新创建实例化）
+ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
+// 获取 ws的token信息 (ws连接前必须要先获取token信息)
+ws.get_api_v1_shop_im_token();
+// 获取当前店铺商家的信息
+ws.get_api_v1_shop_im_user_get_info_list();
+// 连接websocket
+ws.connect()
+// 关闭ws连接
+ws.close()
+```
+- 获取收件箱买家列表 & 买家的聊天的内容
+```js
+// 实例化（不同的站点需要重新创建实例化）
+ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
+// 获取 ws的token信息 (ws连接前必须要先获取token信息)
+ws.get_api_v1_shop_im_token();
+// 获取当前店铺商家的信息
+ws.get_api_v1_shop_im_user_get_info_list();
+
+// 获取收件箱买家列表 第一页 翻页，0为第一页 10为第二页，以此递增
+ws.send_messages_per_user_init_v2_body(0)
+// 获取收件箱买家列表 第二页
+ws.send_messages_per_user_init_v2_body(10)
+// 获取收件箱买家列表 第三页
+ws.send_messages_per_user_init_v2_body(20)
+```
+
+
+
+## 编码与解码(买家和达人可共用)
 ```js
 // 解码 数据
 {"low": 1875778455, "high": 408, "unsigned": false}
@@ -97,4 +134,3 @@ ws = new WebSocketClient({oec_seller_id:"店铺ID,字符串类型", shop_region:
 ws.decrypt_biz_ext(biz_ext)
 // 数据还原后：'{"creator_oec_id":"7495487703174842515","handle":"rose_nathrini","avatar":"https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/048c6436442dd100cdac6a673d078fb5~tplv-tiktokx-cropcenter:1080:1080.webp?dr=14579\\u0026refresh_token=8f4a29a1\\u0026x-expires=1762149600\\u0026x-signature=9CjzK%2Bqxa%2BgIJNWmGDTtNXz6ktw%3D\\u0026t=4d5b0474\\u0026ps=13740610\\u0026shp=a5d48078\\u0026shcp=20565669\\u0026idc=my"}'
 ```
-
