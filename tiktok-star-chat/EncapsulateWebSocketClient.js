@@ -182,43 +182,6 @@ class WebSocketClient {
         // 解密返回的信息
         var decrypted_information = we(xe(event.data).payload);
         console.log('%cWS接收到的信息执行解密处理', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgb(0, 158, 61);', decrypted_information);
-
-        if (decrypted_information?.cmd == 100){
-            // 发信的处理
-            if (decrypted_information?.body?.send_message_body?.extra_info) {
-                try {
-                    var error_info = atob(decrypted_information.body.send_message_body.extra_info);
-                    console.log('%c私信失败', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgb(238, 0, 0);', error_info);
-                    window.__WS__msg = error_info;
-                } catch (error) {
-                    console.log('%c私信失败', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgb(238, 0, 0);', error);
-                    window.__WS__msg = `base64解码失败 - ${error} - ${decrypted_information.body.send_message_body.extra_info}`;
-                };
-            } else {
-                window.__WS__msg = '信息发送成功'
-                console.log('%c信息发送成功', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgba(10, 218, 38, 1);',  window.__WS__msg);
-            };
-        } else if (decrypted_information?.cmd == 690){
-            // 用户列表信息的处理
-            if (decrypted_information?.error_desc == 'OK'){
-                window.__WS__data = JSON.stringify(decrypted_information?.body?.get_conversation_group_list_body?.data || null)
-                console.log('%c获取用户列表成功', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgba(10, 218, 38, 1);', window.__WS__data);
-
-            } else {
-                window.__WS__msg = `【未回复】列表获取错误 ${decrypted_information?.error_desc}`
-                console.log('%c获取用户列表信息失败', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgb(238, 0, 0);', window.__WS__msg);
-            };
-
-        } else if (decrypted_information?.cmd == 200){
-            // 获取翻页 next_cursor 信息
-            if (decrypted_information?.error_desc == 'OK'){
-                console.log('%c获取----用户列表', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgba(10, 218, 38, 1);', decrypted_information.body.messages_per_user_body.next_cursor);
-                this.next_cursor = decrypted_information.body.messages_per_user_body.next_cursor
-                return decrypted_information.body.messages_per_user_body.next_cursor
-            } else {
-                console.log('%c获取----用户列表 失败', 'padding: 3px; border-radius: 7px; color: rgb(255, 255, 255); background-color: rgb(238, 0, 0);', window.__WS__msg);
-            };
-        }
     }
 
     close() {
@@ -504,7 +467,7 @@ class WebSocketClient {
 
     async get_inbox_guru(cursor, custom_group_name) {
         /**
-         * 达人 获取收件箱指定列表的用户 结构体 （可以不用建立ws连接，但需要执行 get_api_v1_im_token）
+         * 达人 获取指定收件箱的达人列表 结构体 （可以不用建立ws连接，但需要执行 get_api_v1_im_token）
          *
          * @param {Object} cursor - 翻页游标
          * @param {string} custom_group_name - 要获取的页面类型 s_all=全部  s_unread=未读  s_un_reply=未回复 s_archived=已归档  s_star=已加星标
@@ -613,7 +576,7 @@ class WebSocketClient {
 
     decrypt_biz_ext(uint8Arr){
         // 解码 biz_ext 参数，将 Uint8Array 数组转为字符串
-        return new TextDecoder('utf-8').decode(uint8Arr);
+        return new TextDecoder('utf-8').decode(new Uint8Array(uint8Arr));
     }
 
     decrypt_restor_from_number(data_dict){
