@@ -103,7 +103,30 @@ ws.send_messages_per_user_init_v2_body(10)
 // 获取收件箱买家列表 第三页
 ws.send_messages_per_user_init_v2_body(20)
 ```
+- 对某个买家设置【星标】
+```js
+// 实例化（不同的站点需要重新创建实例化）
+ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
+// 获取 ws的token信息 (ws连接前必须要先获取token信息)
+ws.get_api_v1_shop_im_token();
+// 获取当前店铺商家的信息
+ws.get_api_v1_shop_im_user_get_info_list();
 
+// 对商家设置星标 true=添加星标 false=删除星标
+ws.set_buyer_star(true, '买家ID,字符串类型')
+```
+- 获取某些买家的标签信息（im_buyer_id、名称、头像、语言、是否有星标、标签）
+```js
+// 实例化（不同的站点需要重新创建实例化）
+ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
+// 获取 ws的token信息 (ws连接前必须要先获取token信息)
+ws.get_api_v1_shop_im_token();
+// 获取当前店铺商家的信息
+ws.get_api_v1_shop_im_user_get_info_list();
+
+// 获取某些买家的标签信息，注意是Object格式,
+ws.get_buyer_user_mget_info(['买家ID,字符串类型','买家ID,字符串类型','买家ID,字符串类型'])
+```
 
 
 ## 编码与解码(买家和达人可共用)

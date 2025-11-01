@@ -675,7 +675,7 @@ class WebSocketClient {
          * @param {string} page - 翻页，0为第一页 10为第二页，以此递增
          * 每次只能获取10个用户信息和10个用户的所有聊天记录
          * 
-         * sender_role  1=买家信息 2=人工信息 3=机器人信息
+         * sender_role 1=客户发的信息 2=人工发的信息 3=机器人发的信息 4=会话被分配的信息
          * countdown  true=未回复  false=已回复
          */
         const url = "https://oec-im-tt-sg.tiktokglobalshopv.com/v2/message/get_by_user_init";
@@ -703,6 +703,91 @@ class WebSocketClient {
         return ee;
     }
 
+    async set_buyer_star(is_star, imcloud_conversation_id){
+        /**
+         * 买家 设置收件箱用户是否加星标
+         *
+         * @param {boolean} is_star - 设置星标【true=加星标，false=取消星标】
+         * @param {string} imcloud_conversation_id - 买家列表的用户ID
+         * 
+         */
+        const base = "https://api16-normal-sg.tiktokshopglobalselling.com/api/v1/shop_im/shop/conversation/mset_conversation_meta_info";
+        const params = {
+            "PIGEON_BIZ_TYPE": "1",
+            "oec_region": this.shop_info.shop_region,
+            "cb_shop_region": this.shop_info.shop_region,
+            "aid": "6556",
+            "oec_seller_id": this.shop_info.oec_seller_id,
+            "im_req_timestamp": new Date().getTime().toString(),
+            "device_platform": "pc",
+            "im_version_code": "8748"
+        }
+        const url = new URL(base);
+        url.search = new URLSearchParams(params).toString();
+        const res = await fetch(url.toString(), {
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "content-type": "application/json",
+                "x-tt-oec-region": this.shop_info.shop_region
+            },
+            "body": JSON.stringify({
+                "imcloud_conversation_ids": [imcloud_conversation_id.toString()],
+                "is_star": is_star
+            }),
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data?.code == 0 && data?.message == ''){
+            return data;
+        }
+        throw new Error(`[api/v1/shop_im/shop/conversation/mset_conversation_meta_info]该接口请求异常，${data}, 返回参数状态码为${data?.code}`);
+    
+    }
+
+    async get_buyer_user_mget_info(imcloud_conversation_ids){
+        /**
+         * 买家 获取买家的部分标签信息（im_buyer_id、名称、头像、语言、是否有星标、标签）
+         *
+         * @param {object} imcloud_conversation_ids - 买家ID，object类型，内嵌字符串ID
+         * 
+         * system_tag 1=售后、2=物流、3=售前
+         */
+        const base = "https://api16-normal-sg.tiktokshopglobalselling.com/api/v1/shop_im/shop/user/mget_info_v2";
+        const params = {
+            "PIGEON_BIZ_TYPE": "1",
+            "oec_region": this.shop_info.shop_region,
+            "cb_shop_region": this.shop_info.shop_region,
+            "aid": "6556",
+            "oec_seller_id": this.shop_info.oec_seller_id,
+            "im_req_timestamp": new Date().getTime().toString(),
+            "device_platform": "pc",
+            "im_version_code": "8748"
+        }
+        const url = new URL(base);
+        url.search = new URLSearchParams(params).toString();
+        const res = await fetch(url.toString(), {
+            "headers": {
+                "accept": "application/json, text/plain, */*",
+                "content-type": "application/json",
+                "x-tt-oec-region": this.shop_info.shop_region
+            },
+            "body": JSON.stringify({
+                "imcloud_conversation_ids": imcloud_conversation_ids
+            }),
+            "method": "POST",
+            "mode": "cors",
+            "credentials": "include"
+        });
+        const data = await res.json();
+        console.log(data);
+        if (data?.code == 0 && data?.message == ''){
+            return data;
+        }
+        throw new Error(`[api/v1/shop_im/shop/user/mget_info_v2]该接口请求异常，${data}, 返回参数状态码为${data?.code}`);
+    }
 
     decrypt_biz_ext(uint8Arr){
         // 解码 biz_ext 参数，将 Uint8Array 数组转为字符串
