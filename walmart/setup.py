@@ -8,12 +8,13 @@ def readme():
 
 setup(
     name='walmartBot',           # 包的名字
-    version='0.0.1',             # 包的版本
+    version='0.0.2',             # 包的版本
     packages=find_packages(),    # 自动寻找包中的模块
     install_requires=[           # 依赖的其他包
         'setuptools',
         'requests',
-        'PySocks'
+        'PySocks',
+        'curl_cffi>=0.13.0'
     ],
     author='Xiaomu',
     author_email='jiangongfang@foxmail.com',

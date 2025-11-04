@@ -1,6 +1,7 @@
 import json
 import base64
 import random
+from curl_cffi import requests as cffi_requests
 import requests
 from string import digits, ascii_letters
 import time
@@ -119,5 +120,12 @@ class WalMart:
             f"{self.random_string(random.randint(6, 20))}": self.random_string(random.randint(1, 20)),
         }
         return requests.get(url=url, params=params, headers=self.headers(url), proxies=self.get_requests_proxy())
+
+    @retry(max_retries=3)
+    def request4(self, *args, **kwargs) -> cffi_requests.Response:
+        """请求"""
+        kwargs['proxies'] = self.get_requests_proxy()
+        kwargs['impersonate'] = random.choice(["chrome136", "chrome131", "chrome124", "chrome123", "chrome120", "chrome119"])
+        return cffi_requests.get(*args, **kwargs)
 
 __all__ = ["WalMart"]
