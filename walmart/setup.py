@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='walmartBot',           # 包的名字
-    version='0.0.2',             # 包的版本
+    version='0.0.3',             # 包的版本
     packages=find_packages(),    # 自动寻找包中的模块
     install_requires=[           # 依赖的其他包
         'setuptools',

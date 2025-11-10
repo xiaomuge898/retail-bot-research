@@ -1,7 +1,10 @@
 ## 轻松跳过烦人的人机，实现高效采集数据
 <img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/walmart-img/2025-10-04_15-25-18.png" width="400"/>
 
-## 使用流程
+#### 注意：模块方法都是封装好的，专过人机检测风控，最好不要随意修改，因为某些参数一旦修改，可能会造成一系列的请求错误，或人机无法绕过的情况，如果有什么问题，可以直接私。
+### 改模块将会持续更新...
+
+## 使用流程 0.0.3
 1. 安装模块
 ```shell
 pip install walmartBot
@@ -26,6 +29,22 @@ WalMart.disable_proxy()
 print(WalMart.current_proxy())
 # 查看request使用的代理
 print(WalMart.get_requests_proxy())
+```
+4. 获取过人机验证的令牌
+```python
+WalMart = WalMart()
+# 获取 _pxvid 令牌
+get_pxvid_v2 = WalMart.get_pxvid_v2()
+# 使用令牌请求资源
+res = WalMart.request(
+    url='https://www.walmart.com/ip/Skytech-Archangel-Gaming-PC-Desktop-AMD-Ryzen-7-7700-NVIDIA-GeForce-RTX-5060-1TB-Gen4-NVMe-SSD-32GB-DDR5-RAM-Windows-11/17438712331?athAsset=eyJhdGhjcGlkIjoiMTc0Mzg3MTIzMzEiLCJhdGhzdGlkIjoiQ1MwMjAiLCJhdGhhbmNpZCI6Ikl0ZW1DYXJvdXNlbCIsImF0aHJrIjowLjB9&athena=true',
+    cookies={"_pxvid": get_pxvid_v2}
+)
+print(res.text)
+# 注意：获取令牌后，最好等待5-10秒在使用。 1个令牌不能并发请求多个资源，想要并发请求资源可以自己搭建一个令牌池。
+# 一个令牌可以请求多个资源，令牌如果失效了，可以存储起来，等待2-5个小时即可恢复使用，具体轮询时间请自测
+# 建议请求数据使用socks5h协议代理,该协议支持服务器DNS解析, 并选择好的海外隧道IP池，支持自动更新IP是最好不过的方式。
+# 获取令牌 WalMart.get_pxvid_v2(proxies={...}) 也可以自己设置独立的ip去请求令牌。
 ```
 
 ## 使用场景如下(非登陆模式)
