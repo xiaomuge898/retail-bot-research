@@ -1,7 +1,7 @@
 ## 轻松跳过烦人的人机，实现高效采集数据
-<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/2025-12-15_16-21-36.png" width="400" />
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/2025-12-15_16-21-36.png" width="800" />
 <br/>
-<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/2025-12-15_18-55-41.gif" width="400" />
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/2025-12-15_18-55-41.gif" width="1000" />
 
 #### 注意：该功能已经实现了绕过人机功能，但仅临时救急使用，感兴趣的可以二次修改封装，有空我在进行优化处理，如果有什么问题，可以直接私。
 ### 改模块将会持续更新...
