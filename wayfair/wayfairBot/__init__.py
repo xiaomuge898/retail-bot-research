@@ -1,4 +1,6 @@
+import json
 import base64
+import re
 import requests
 from typing import Optional
 
@@ -22,6 +24,7 @@ class Wayfair:
         }
         self._pxvid = None
         self._px_data = None
+        self._praphql_id = None
 
     def set_px_data(self, data: dict):
         """设置 px/xhr/api/v2/collector 接口的载荷信息"""
@@ -63,7 +66,6 @@ class Wayfair:
         oo1oo1 = next(_)
         assert oo1oo1, 'No result'
         self._pxvid = oo1oo1.split('|')[1]
-        print(self._pxvid)
         return self._pxvid
 
     def get_url_data(self, url: str, cookies: Optional[dict] = None, latest: bool = True) -> requests.Response:
@@ -81,5 +83,82 @@ class Wayfair:
         if latest or not cookies["_pxvid"]: cookies["_pxvid"] = self.get_pxvid(self._px_data)
         # url = "https://www.wayfair.com/storage-organization/pdp/ophelia-co-435-shoe-storage-bench-with-lift-top-storage-and-removable-cushion-shoe-bench-with-3-barn-doors-and-adjustable-shelf-for-entryway-bedroom-w114567370.html?piid=1904109882&auctionId=aeb46527-ff31-45ee-b612-84e16ce682b9&trackingId=%7B%22adType%22%3A%22WSP%22%2C%22auctionId%22%3A%22aeb46527-ff31-45ee-b612-84e16ce682b9%22%7D&adTypeId=1"
         return requests.get(url, headers=headers, cookies=cookies)
+
+    def get_product_id(self, text: str) -> str:
+        """获取 praphql_id"""
+        text = text.replace('\n','').replace('\t','').replace('\f','').replace('\r','')
+        praphql_id = re.findall(r'<script>self\.__next_f\.push\(\[1,"[a-zA-Z0-9]{2}:T424,(.+?[=]{1,3})', text)
+        praphql_id = praphql_id[0] if praphql_id else None
+        self._praphql_id = praphql_id
+        return self._praphql_id
+
+    def get_comment_content(self, latest: bool = True) -> list:
+        """获取评论内容"""
+        assert self._praphql_id, 'No result'
+        headers = {
+            "accept": "*/*",
+            "accept-language": "zh-CN,zh;q=0.9",
+            "apollographql-client-name": "@wayfair/sf-ui-core-funnel",
+            "apollographql-client-version": "518d1653cdc199d05a38657b2606ce0a10d563ba",
+            "cache-control": "no-cache",
+            "content-type": "application/json",
+            "origin": "https://www.wayfair.com",
+            "pragma": "no-cache",
+            "priority": "u=1, i",
+            "sec-ch-ua": "\"Not)A;Brand\";v=\"8\", \"Chromium\";v=\"138\", \"Brave\";v=\"138\"",
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": "\"Windows\"",
+            "sec-fetch-dest": "empty",
+            "sec-fetch-mode": "cors",
+            "sec-fetch-site": "same-origin",
+            "sec-gpc": "1",
+            "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36",
+            "wf-b2b-aisle": "null",
+            "wf-b2b-experience": "false",
+            "wf-locale": "en-US",
+            "wf-page-context": "{\"pageType\":\"Product-Detail\",\"pageTypeId\":5,\"pageKey\":\"Product-Detail\"}",
+            "wf-store-id": "49",
+            "x-oi-client": "sf-ui-web",
+            "x-wayfair-host-override": "www.wayfair.com",
+            "x-wayfair-locale": "en-US",
+            "x-wf-way": "true"
+        }
+        cookies = {
+            "_pxvid": self._pxvid
+        }
+        # latest 每次都获取最新的 _pxvid 令牌
+        if latest or not cookies["_pxvid"]: cookies["_pxvid"] = self.get_pxvid(self._px_data)
+        url = "https://www.wayfair.com/federation/graphql"
+        data = {
+            "operationName": "reviewsListPossibleMPLDataByNodeIdQuery",
+            "variables": {
+                "nodeId": self._praphql_id,
+                "firstReview": 10000,
+                "sort": "DATE_DESC",
+                "filter": {
+                    "aspects": [],
+                    "textSearch": "",
+                    "ratings": None
+                },
+                "includeImages": True,
+            },
+            "extensions": {
+                "persistedQuery": {
+                    "version": 1,
+                    "sha256Hash": "32e2aa8aa03b78b2ec0a27e9455f5c5d61dabe92c3ef58fdee528c73302163eb"
+                }
+            }
+        }
+        edges = []
+        while True:
+            response = requests.post(url, headers=headers, cookies=cookies, data=json.dumps(data, separators=(',', ':')))
+            res = response.json()
+            endCursor = res.get('data', {}).get('listingVariant', {}).get('reviewslist', {}).get('reviews', {}).get(
+                'pageInfo', {}).get('endCursor', '')
+            edges += res.get('data', {}).get('listingVariant', {}).get('reviewslist', {}).get('reviews', {}).get('edges', []) or []
+            if not endCursor or data['variables']['firstReview'] > len(edges):
+                break
+            data['variables']['afterReview'] = endCursor
+        return edges
 
 __all__ = [ "Wayfair" ]

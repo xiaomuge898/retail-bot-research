@@ -1,5 +1,7 @@
 ## 轻松跳过烦人的人机，实现高效采集数据
-<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/2025-12-15_16-21-36.png" width="400"/>
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/2025-12-15_16-21-36.png" width="400" />
+<br/>
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/2025-12-15_18-55-41.gif" width="400" />
 
 #### 注意：该功能已经实现了绕过人机功能，但仅临时救急使用，感兴趣的可以二次修改封装，有空我在进行优化处理，如果有什么问题，可以直接私。
 ### 改模块将会持续更新...
@@ -20,7 +22,7 @@ print(pxvid)  # f577094a-d998-11f0-a607-866ad95254b4
 from wayfairBot import Wayfair
 
 wayfair = Wayfair()
-data = wayfair.get_url_data('https://www.wayfair.com/storage-organization/pdp/ophelia-co-435-shoe-storage-bench-with-lift-top-storage-and-removable-cushion-shoe-bench-with-3-barn-doors-and-adjustable-shelf-for-entryway-bedroom-w114567370.html?piid=1904109882&auctionId=aeb46527-ff31-45ee-b612-84e16ce682b9&trackingId=%7B%22adType%22%3A%22WSP%22%2C%22auctionId%22%3A%22aeb46527-ff31-45ee-b612-84e16ce682b9%22%7D&adTypeId=1')
+data = wayfair.get_url_data('https://www.wayfair.com/storage-organization/pdp/ophelia-co-435-shoe-storage-bench-with-lift-top-storage-and-removable-cushion-shoe-bench-with-3-barn-doors-and-adjustable-shelf-for-entryway-bedroom-w114567370.html?piid=1904109882&auctionId=aeb46527-ff31-45ee-b612-84e16ce682b9&trackingId=%7B%22adType%22%3A%22WSP%22%2C%22auctionId%22%3A%22aeb46527-ff31-45ee-b612-84e16ce682b9%22%7D&adTypeId=1').text
 print(data)    # <html>...</html>
 ```
 
@@ -34,10 +36,32 @@ wayfair.get_pxvid()
 # latest 
 #   True 默认值，每次请求会自动获取最新的pxvid令牌
 #   False, 重复使用同一个令牌（只能手动请求更换新的令牌）
-data = wayfair.get_url_data(url='https://www.wayfair.com/....', latest=False)
+data = wayfair.get_url_data(url='https://www.wayfair.com/....', latest=False).text
 print(data)    # <html>...</html>
 ```
 
+# 获取当前商品的评论信息
+```python
+import json
+from wayfairBot import Wayfair
+
+wayfair = Wayfair()
+# 获取并设置令牌
+print('pxvid 令牌 -> ', wayfair.get_pxvid())
+
+# 请求商品数据
+text = wayfair.get_url_data('https://www.wayfair.com/storage-organization/pdp/steelside-millan-16-pair-shoe-storage-cabinet-w009993502.html?piid=1334235087&auctionId=952c1397-3f62-4d36-816e-d043dc10a027&trackingId=%7B%22adType%22%3A%22WSP%22%2C%22auctionId%22%3A%22952c1397-3f62-4d36-816e-d043dc10a027%22%7D&adTypeId=1', latest=False).text
+# print('请求商品数据 -> ', text[:5000])
+
+# 提取 praphql_id
+product_id = wayfair.get_product_id(text)
+print('获取 product_id -> ', product_id)
+
+# 获取该商品的评论信息
+data = wayfair.get_comment_content(latest=False)  # [...]
+with open('comment.json', 'w', encoding='utf-8') as f:
+    f.write(json.dumps(data))
+```
 
 ### 注意！！！
 1. 请使用socks5h协议代理，该协议支持服务器DNS解析
