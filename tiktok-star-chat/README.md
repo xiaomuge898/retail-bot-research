@@ -4,6 +4,8 @@
 
 ### 方法功能都已经写好了，可以自己封装一下，无论是做成插件，还是用python自动化，都是不错的选择。
 
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/tiktok-img/2025-12-24_19-29-14.gif" width="1200" />
+
 ## 【达人】发信方法如下
 1. 打开【 https://affiliate.tiktokshopglobalselling.com/api/v1/affiliate/account/info 】页面(可以省略很多的网络资源)
 2. 打开并复制 *00e72210e498b35e5268c6f6d4cec1ee.js* 文件的内容，直接粘贴到控制台中运行，然后把 *EncapsulateWebSocketClient.js* 文件中的内容也粘贴到控制台中运行
