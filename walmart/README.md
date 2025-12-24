@@ -1,5 +1,8 @@
 ## 轻松跳过烦人的人机，实现高效采集数据
 <img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/walmart-img/2025-10-04_15-25-18.png" width="400"/>
+<br>
+<img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/walmart-img/2025-12-24_17-59-03.gif" width="1200"/>
+
 
 #### 注意：模块方法都是封装好的，专过人机检测风控，最好不要随意修改，因为某些参数一旦修改，可能会造成一系列的请求错误，或人机无法绕过的情况，如果有什么问题，可以直接私。
 ### 改模块将会持续更新...
