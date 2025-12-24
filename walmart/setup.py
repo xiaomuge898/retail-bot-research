@@ -12,8 +12,8 @@ setup(
     packages=find_packages(),    # 自动寻找包中的模块
     install_requires=[           # 依赖的其他包
         'setuptools',
-        'requests',
-        'PySocks',
+        'requests>=2.32.5',
+        'PySocks>=1.7.1',
         'curl_cffi>=0.13.0'
     ],
     author='Xiaomu',
