@@ -1,11 +1,11 @@
 ## 本项目仅供 研究、学习与测试环境 使用，禁止在未授权的真实平台上进行绕过或攻击行为。
 
-|                                                                                                                                                                    | 平台      | 链接              | 说明                            |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|-----------------|-------------------------------|
-| <img height="40" src="https://i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" width="40"/>                          | Walmart | [直接传送](walmart) | 绕过【按住按钮验证】人机验证                |
-| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/tiktok-img/2025-10-29_16-26-48.png" width="40"/>                   | Tiktok  | [直接传送](tiktok-star-chat)  | 联盟中心-达人私信-买家私信 (逆向)（买家私信暂时停更） |
-| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/wayfair_192x192.png" width="40"/>                      | Wayfair | [直接传送](wayfair)  | 绕过【按住按钮验证】人机验证    |
-| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/toyotasgamedaygiveaways-img/2025-12-24_17-05-20.png" width="100"/> | Toyota  | [直接传送](toyotasgamedaygiveaways)  | 绕过【按住按钮验证】人机验证    |
+|                                                                                                                                                                    | 平台      | 链接                       | 说明                            |
+|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|--------------------------|-------------------------------|
+| <img height="40" src="https://i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" width="40"/>                          | Walmart | [直接传送](walmart)          | 绕过【按住按钮验证】人机验证                |
+| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/tiktok-img/2025-10-29_16-26-48.png" width="40"/>                   | Tiktok  | [直接传送](tiktok-star-chat) | 联盟中心-达人私信-买家私信 (逆向)（买家私信暂时停更） |
+| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/wayfair_192x192.png" width="40"/>                      | Wayfair | [直接传送](wayfair)          | 绕过【按住按钮验证】人机验证    |
+| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/toyotasgamedaygiveaways-img/2025-12-24_17-05-20.png" width="100"/> | Toyota  | 其他原因已下架                  | 绕过【按住按钮验证】人机验证    |
 
 ## 本项目里固定的版本号
 ![Python Version](https://img.shields.io/badge/Python-3.12-blue)
