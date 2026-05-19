@@ -8,7 +8,7 @@ def readme():
 
 setup(
     name='walmartBot',           # 包的名字
-    version='0.0.3',             # 包的版本
+    version='0.0.4',             # 包的版本
     packages=find_packages(),    # 自动寻找包中的模块
     install_requires=[           # 依赖的其他包
         'setuptools',
@@ -23,10 +23,6 @@ setup(
     long_description_content_type='text/markdown',
     url='https://www.jiangongfang.top',
     classifiers=[
-        'Programming Language :: Python :: 3.8',
-        'Programming Language :: Python :: 3.9',
-        'Programming Language :: Python :: 3.10',
-        'Programming Language :: Python :: 3.11',
         'Programming Language :: Python :: 3.12',
         'Programming Language :: Python :: 3.13',
         'License :: OSI Approved :: MIT License',

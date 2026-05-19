@@ -7,7 +7,7 @@
 #### 注意：模块方法都是封装好的，专过人机检测风控，最好不要随意修改，因为某些参数一旦修改，可能会造成一系列的请求错误，或人机无法绕过的情况，如果有什么问题，可以直接私。
 ### 改模块将会持续更新...
 
-## 使用流程 0.0.3
+## 使用流程 0.0.4
 1. 安装模块
 ```shell
 pip install walmartBot
@@ -16,35 +16,57 @@ pip install walmartBot
 ```python
 from walmartBot import WalMart
 
+# 实例化
 WalMart = WalMart()
+
+# 直接请求大概率会出人机，需要搭配下面的ip池和令牌
 res = WalMart.request('https://www.walmart.com/ip/Skytech-Archangel-Gaming-PC-Desktop-AMD-Ryzen-7-7700-NVIDIA-GeForce-RTX-5060-1TB-Gen4-NVMe-SSD-32GB-DDR5-RAM-Windows-11/17438712331?athAsset=eyJhdGhjcGlkIjoiMTc0Mzg3MTIzMzEiLCJhdGhzdGlkIjoiQ1MwMjAiLCJhdGhhbmNpZCI6Ikl0ZW1DYXJvdXNlbCIsImF0aHJrIjowLjB9&athena=true')
 print(res.text)
 ```
 3. 代理配置与查看
 ```python
 WalMart = WalMart()
-# 设置代理
+
+# 设置代理(建议用海外隧道ip池，每次请求自动更换ip)
 WalMart.set_proxy('socks5h://127.0.0.1:7898/')
 WalMart.set_proxy("socks5h://username:password@ip:port/")
-# 禁用代理
+
+# 删除已设置的代理
 WalMart.disable_proxy()
+
 # 查看代理字符串
 print(WalMart.current_proxy())
+
 # 查看request使用的代理
 print(WalMart.get_requests_proxy())
 ```
 4. 获取过人机验证的令牌
+
 ```python
+import time
+
 WalMart = WalMart()
-# 获取 _pxvid 令牌
-get_pxvid_v2 = WalMart.get_pxvid_v2()
+
+# 设置ip池
+WalMart.set_proxy("socks5h://username:password@ip:port/")
+
+# 获取 _pxvid 令牌（版本二）
+# get_pxvid_v2 = WalMart.get_pxvid_v2()
+
+# 获取 _pxvid 令牌（版本三）（最新）
+get_pxvid_v3 = WalMart.get_pxvid_v3()
+
+# 获取令牌后，要等待15秒生效（要用海外ip进行获取令牌）
+time.sleep(15)
+
 # 使用令牌请求资源
 res = WalMart.request(
     url='https://www.walmart.com/ip/Skytech-Archangel-Gaming-PC-Desktop-AMD-Ryzen-7-7700-NVIDIA-GeForce-RTX-5060-1TB-Gen4-NVMe-SSD-32GB-DDR5-RAM-Windows-11/17438712331?athAsset=eyJhdGhjcGlkIjoiMTc0Mzg3MTIzMzEiLCJhdGhzdGlkIjoiQ1MwMjAiLCJhdGhhbmNpZCI6Ikl0ZW1DYXJvdXNlbCIsImF0aHJrIjowLjB9&athena=true',
-    cookies={"_pxvid": get_pxvid_v2}
+    cookies={"_pxvid": get_pxvid_v2},
+    random_tls=True   # True 启用随机TLS，默认False（根据情况来，如果不随机TLS也能出数据，就不要开启）
 )
 print(res.text)
-# 注意：获取令牌后，最好等待5-10秒在使用。 1个令牌不能并发请求多个资源，想要并发请求资源可以自己搭建一个令牌池。
+# 注意：获取令牌后，最好等待15秒在使用。 1个令牌不能并发请求多个资源，想要并发请求资源可以自己搭建一个令牌池。
 # 一个令牌可以请求多个资源，令牌如果失效了，可以存储起来，等待2-5个小时即可恢复使用，具体轮询时间请自测
 # 建议请求数据使用socks5h协议代理,该协议支持服务器DNS解析, 并选择好的海外隧道IP池，支持自动更新IP是最好不过的方式。
 # 获取令牌 WalMart.get_pxvid_v2(proxies={...}) 也可以自己设置独立的ip去请求令牌。
