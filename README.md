@@ -7,6 +7,11 @@
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/wayfair_192x192.png" width="40"/>                      | Wayfair | [直接传送](wayfair)          | 绕过【按住按钮验证】人机验证    |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/toyotasgamedaygiveaways-img/2025-12-24_17-05-20.png" width="100"/> | Toyota  | 其他原因已下架                  | 绕过【按住按钮验证】人机验证    |
 
+## 免责声明
+
+> [!CAUTION]
+> 此库仅用于教育和研究目的。使用此库即表示您同意遵守本地和国际数据抓取和隐私法律。作者和贡献者对本软件的任何滥用不承担责任。始终尊重网站的服务条款和 robots.txt 文件。
+
 ## 本项目里固定的版本号
 ![Python Version](https://img.shields.io/badge/Python-3.12-blue)
 ![Node Version](https://img.shields.io/badge/Node-v20.11.0%20|%20v22.17.1-blue)
