@@ -1,137 +1,114 @@
 ## Tiktok 聊天发信功能
-#### 达人私信v：1.2.16
-#### 买家发信v：1.2.2（买家发信完善中...）
+| 支持：Tiktok 本土/非本土
+| 支持站点类型：MY/PH/SG/TH/VN/US（其他站点没测，但基本都支持）
+### 达人私信v：1.2.16（官方js版本）
+#### ~~买家发信v：1.2.2（买家发信完善中...）~~
 
 ### 方法功能都已经写好了，可以自己封装一下，无论是做成插件，还是用python自动化，都是不错的选择。
+| EncapsulateWebSocketClient.js 是旧版，已弃用
 
 <img src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/tiktok-img/2025-12-24_19-29-14.gif" width="1200" />
 
 ## 【达人】发信方法如下
-1. 打开【 https://affiliate.tiktokshopglobalselling.com/api/v1/affiliate/account/info 】页面(可以省略很多的网络资源)
-2. 打开并复制 *00e72210e498b35e5268c6f6d4cec1ee.js* 文件的内容，直接粘贴到控制台中运行，然后把 *EncapsulateWebSocketClient.js* 文件中的内容也粘贴到控制台中运行
-3. 然后使用下面的代码进行一系列的操作即可
+1. **_非本土_** 店铺打开【 https://affiliate.tiktokshopglobalselling.com/api/v1/affiliate/account/info 】页面(可以省略很多的网络资源)
+2. **_本土_** 店铺打开【 https://affiliate.tiktok.com/api/v1/affiliate/account/info_v2 】页面(可以省略很多的网络资源)
+3. 打开并复制 *00e72210e498b35e5268c6f6d4cec1ee.js* 文件的内容，直接粘贴到控制台中运行，然后把 *EncapsulateWebSocketClient_v1.2.js* 文件中的内容也粘贴到控制台中运行
+4. 然后使用下面的代码进行一系列的操作即可
 - 常规操作
 ```js
-// 实例化（不同的站点需要重新创建实例化）
-ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
-// 获取 ws的token信息 (ws连接前必须要先获取token信息)
-ws.get_api_v1_im_token()
-// 和某个达人创建聊天室（更换达人也可以用这个）（发信前必须要用这个方法创建聊天室，否则无法发送信息，如果需要更换达人，也需要用这个方法创建新的聊天室，创建一次即可一直聊天）
-ws.create_v1_im_conversation_create("7494184461450905616")
-// 连接websocket
-ws.connect()
-// 关闭ws连接
-ws.close()
+(async () => {
+    // 实例化（不同的站点需要重新创建实例化）
+    ws = await new WebSocketClient({
+        oec_seller_id: "8647214523272168685", 
+        shop_region: "VN"
+    }).init()
+    
+    // 对该达人开启聊天模式（切换）
+    await ws.set_chat_room("达人ID")
+    
+    // 发信息
+    await ws.send_guru_information("hello")
+    
+    // 发图片
+    await ws.send_guru_img("https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/3c1212db21f94a95a84d4da985044959~tplv-fhlh96nyum-origin-jpeg.jpeg?dr=12178&from=520841845&idc=useast5&ps=933b5bde&shcp=2c1af732&shp=1f0b6a75&t=555f072d")
+    
+    // 发商品卡片
+    await ws.send_guru_commodity("商品ID")
+    
+    // 设置星标 true=设置  false=取消
+    await ws.set_guru_star(true, "", "达人ID")
+    
+    // 设置存档 true=设置  false=取消（可能无法取消）
+    await ws.set_guru_star("", false, "达人ID")
+    
+    // 关闭所有聊天窗口
+    await ws.close()
+})()
 ```
-- 给某个达人发送 信息、商品卡片、图片
+- 给多个达人批量发送 信息、商品卡片、图片
 ```js
-// 先实例化 oec_seller_id=店铺ID  shop_region=店铺站点
-ws = new WebSocketClient({oec_seller_id:"店铺ID,字符串类型", shop_region:"VN"});
-
-// 获取 ws的token信息 (ws连接前必须要先获取token信息)
-ws.get_api_v1_im_token();
-
-// 和某个达人创建聊天室（更换达人也可以用这个）（发信前必须要用这个方法创建聊天室，否则无法发送信息，如果需要更换达人，也需要用这个方法创建新的聊天室，创建一次即可一直聊天）
-ws.create_v1_im_conversation_create("达人ID,字符串类型");
-
-// 连接websocket
-ws.connect();
-
-// 给达人发信息（注意，达人没有回复你信息前，你只能发5条信息）
-ws.send_guru_information('hello');
-ws.send_guru_information('Can we collaborate for a while');
-
-// 给达人发商品卡片
-ws.send_guru_commodity('商品ID,字符串类型');
-
-// 给达人发图片（注意，图片的链接只要可以再海外网络环境下打开即可）
-ws.send_guru_img('图片链接');
+(async () => {
+    // 实例化（不同的站点需要重新创建实例化）
+    ws = await new WebSocketClient({
+        oec_seller_id: "店铺ID,字符串类型", 
+        shop_region: "US"
+    }).init()
+    var creator_oec_id_list = ["7494669816897702627", "7494675858420959720", "7494372236601035062"]
+    for (var i=0;i<creator_oec_id_list.length;i++){
+        // 对该达人开启聊天模式（切换）
+        await ws.set_chat_room(creator_oec_id_list[i])
+        
+        // 发信息
+        await ws.send_guru_information("hello")
+        
+        // 发图片
+        await ws.send_guru_img("https://p16-oec-general-useast5.ttcdn-us.com/tos-useast5-i-omjb5zjo8w-tx/3c1212db21f94a95a84d4da985044959~tplv-fhlh96nyum-origin-jpeg.jpeg?dr=12178&from=520841845&idc=useast5&ps=933b5bde&shcp=2c1af732&shp=1f0b6a75&t=555f072d")
+        
+        // 发商品卡片
+        await ws.send_guru_commodity("商品ID")
+    }
+    // 关闭所有聊天窗口
+    await ws.close()
+})()
 ```
 - 获取指定收件箱的达人列表
 ```js
-// 先实例化 oec_seller_id=店铺ID  shop_region=店铺站点
-ws = new WebSocketClient({oec_seller_id:"店铺ID,字符串类型", shop_region:"VN"});
-
-// 获取 ws的token信息 (ws连接前必须要先获取token信息)
-ws.get_api_v1_im_token();
-
-// 要获取的页面类型 s_all=全部  s_unread=未读  s_un_reply=未回复 s_archived=已归档  s_star=已加星标
-// 获取指定收件箱的达人列表 (第一次请求用null获取第一页的数据)
-ws.get_inbox_guru(null, "s_all")
-// 想要获取第二页的数据，需要把第一页的请求后返回数据的cursor传进来即可
-ws.get_inbox_guru({"low": -1006656308,"high": 408,"unsigned": false}, "s_all")
+(async () => {
+    // 实例化（不同的站点需要重新创建实例化）
+    ws = await new WebSocketClient({
+        oec_seller_id: "7496034600577370325", 
+        shop_region: "US"
+    }).init()
+    
+    // 要获取的页面类型 s_all=全部  s_unread=未读  s_un_reply=未回复 s_archived=已归档  s_star=已加星标
+    // 获取指定收件箱的达人列表 (第一次请求用null获取第一页的数据)
+    var data = await ws.get_inbox_guru(null, "s_all")
+    console.log("data", data)
+    
+    // 想要获取第二页的数据，需要把第一页的请求后返回数据的cursor传进来即可
+    // await ws.get_inbox_guru({"low": -1006656308,"high": 408,"unsigned": false}, "s_all")
+    data = await ws.get_inbox_guru(data.body.get_conversation_group_list_body.data[0].cursor, "s_all")
+    console.log("data", data)
+    
+    // 关闭所有聊天窗口
+    await ws.close()
+})()
 ```
 - 对某个达人设置【星标、存档】
 ```js
-// 先实例化 oec_seller_id=店铺ID  shop_region=店铺站点
-ws = new WebSocketClient({oec_seller_id:"店铺ID,字符串类型", shop_region:"VN"});
-
-// 对某个达人添加星标，true修改未false则删除星标
-ws.set_guru_star(true, null, "达人ID,字符串类型")
-
-// 对某个达人添加存档，true修改未false则删除存档
-ws.set_guru_star(null, true, "达人ID,字符串类型")
-```
-## 【买家】发信方法如下
-1. 打开【 https://seller.tiktokshopglobalselling.com/api/v1/affiliate/account/info 】页面(可以省略很多的网络资源)
-2. 打开并复制 *00e72210e498b35e5268c6f6d4cec1ee.js* 文件的内容，直接粘贴到控制台中运行，然后把 *EncapsulateWebSocketClient.js* 文件中的内容也粘贴到控制台中运行
-3. 然后使用下面的代码进行一系列的操作即可
-- 常规操作
-```js
-// 实例化（不同的站点需要重新创建实例化）
-ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
-// 获取 ws的token信息 (ws连接前必须要先获取token信息)
-ws.get_api_v1_shop_im_token();
-// 获取当前店铺商家的信息
-ws.get_api_v1_shop_im_user_get_info_list();
-// 连接websocket
-ws.connect()
-// 关闭ws连接
-ws.close()
-```
-- 获取收件箱买家列表 & 买家的聊天的内容
-```js
-// 实例化（不同的站点需要重新创建实例化）
-ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
-// 获取 ws的token信息 (ws连接前必须要先获取token信息)
-ws.get_api_v1_shop_im_token();
-// 获取当前店铺商家的信息
-ws.get_api_v1_shop_im_user_get_info_list();
-
-// 获取收件箱买家列表 第一页 翻页，0为第一页 10为第二页，以此递增
-ws.send_messages_per_user_init_v2_body(0)
-// 获取收件箱买家列表 第二页
-ws.send_messages_per_user_init_v2_body(10)
-// 获取收件箱买家列表 第三页
-ws.send_messages_per_user_init_v2_body(20)
-```
-- 对某个买家设置【星标】
-```js
-// 实例化（不同的站点需要重新创建实例化）
-ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
-// 获取 ws的token信息 (ws连接前必须要先获取token信息)
-ws.get_api_v1_shop_im_token();
-// 获取当前店铺商家的信息
-ws.get_api_v1_shop_im_user_get_info_list();
-
-// 对商家设置星标 true=添加星标 false=删除星标
-ws.set_buyer_star(true, '买家ID,字符串类型')
-```
-- 获取某些买家的标签信息（im_buyer_id、名称、头像、语言、是否有星标、标签）
-```js
-// 实例化（不同的站点需要重新创建实例化）
-ws = new WebSocketClient({oec_seller_id:"8647214523272168685", shop_region:"VN"})
-// 获取 ws的token信息 (ws连接前必须要先获取token信息)
-ws.get_api_v1_shop_im_token();
-// 获取当前店铺商家的信息
-ws.get_api_v1_shop_im_user_get_info_list();
-
-// 获取某些买家的标签信息，注意是Object格式,
-ws.get_buyer_user_mget_info(['买家ID,字符串类型','买家ID,字符串类型','买家ID,字符串类型'])
+(async () => {
+    // 先实例化 oec_seller_id=店铺ID  shop_region=店铺站点
+    ws = await new WebSocketClient({oec_seller_id:"店铺ID,字符串类型", shop_region:"VN"}).init()
+    
+    // 对某个达人添加星标，true修改未false则删除星标
+    await ws.set_guru_star(true, null, "达人ID,字符串类型")
+    
+    // 对某个达人添加存档，true修改未false则删除存档
+    await ws.set_guru_star(null, true, "达人ID,字符串类型")
+})()
 ```
 
-
-## 编码与解码(买家和达人可共用)
+## 编码与解码
 ```js
 // 解码 数据
 {"low": 1875778455, "high": 408, "unsigned": false}
