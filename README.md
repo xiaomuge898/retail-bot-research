@@ -6,6 +6,7 @@
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/tiktok-img/2025-10-29_16-26-48.png" width="40"/>                   | Tiktok  | [直接传送](tiktok-star-chat) | 联盟中心-达人私信-买家私信 (逆向)（买家私信暂时停更） |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/wayfair_192x192.png" width="40"/>                      | Wayfair | [直接传送](wayfair)          | 绕过【按住按钮验证】人机验证    |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/toyotasgamedaygiveaways-img/2025-12-24_17-05-20.png" width="100"/> | Toyota  | 其他原因已下架                  | 绕过【按住按钮验证】人机验证    |
+| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/amazon-passkey-img/Snipaste_2026-08-19_10-35-00.jpg" width="100"/> | Amazon-passkey  | [直接传送](amazon-passkey)                  | Amazon Passkey 临时复刻    |
 
 ## 免责声明
 
