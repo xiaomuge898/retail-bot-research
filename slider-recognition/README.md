@@ -1,4 +1,8 @@
 # 滑块缺口距离离线识别
+![Python Version](https://img.shields.io/badge/Python-3.12|3.13|3.14-blue)
+> 支持：Temu/Fruugo/Tiktok/义乌购/GEETEST/数美/网易易盾/简书/腾讯天御/360天御/...
+
+> 支持滑块类型：小拼图 + 背景图
 
 基于 OpenCV 和 NumPy 的离线滑块缺口定位工具。输入小拼图与背景图，返回背景图原始坐标系中的缺口横坐标 `x`。
 
@@ -32,18 +36,14 @@ macOS / Linux：
 ```
 
 ## 使用
-
 ```python
-from pathlib import Path
-
-from CAPTCHA import HumanBehaviorSimulator
-
-solver = HumanBehaviorSimulator()
-distance = solver.slide_match_identify(
-    Path("piece.png").read_bytes(),
-    Path("background.jpg").read_bytes(),
-)
-print(f"缺口横坐标: {distance}px")
+# 引入 CAPTCHA.py 文件
+hum = HumanBehaviorSimulator()
+# 图片可以是 bytes 或 base64
+xiaopingtu = "bytes 或 base64"
+beijingtu = "bytes 或 base64"
+x = hum.slide_match_identify(xiaopingtu, beijingtu)
+print("滑块缺口缺口横坐标", x)
 ```
 
 返回值对应原始背景图宽度。若展示页面缩放了图片，需要由调用方按显示宽度与原图宽度的比例换算。
