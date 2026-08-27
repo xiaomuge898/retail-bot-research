@@ -1,13 +1,14 @@
 ## 本项目仅供 研究、学习与测试环境 使用，禁止在未授权的真实平台上进行绕过或攻击行为。
 
-|                                                                                                                                                                    | 平台      | 链接                       | 说明                            |
-|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------|--------------------------|-------------------------------|
+|   | 平台 | 链接    | 说明   |
+|---|:---:|:---:|---|
 | <img height="40" src="https://i5.walmartimages.com/dfw/63fd9f59-14e2/9d304ce6-96de-4331-b8ec-c5191226d378/v1/spark-icon.svg" width="40"/>                          | Walmart | [直接传送](walmart)          | 绕过【按住按钮验证】人机验证                |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/tiktok-img/2025-10-29_16-26-48.png" width="40"/>                   | Tiktok  | [直接传送](tiktok-star-chat) | 达人发信-买家私信 (逆向) |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/tiktok-img/2025-10-29_16-26-48.png" width="40"/>                   | Tiktok  | [直接传送](tiktok-login) | 登录加密逆向 |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/wayfair-img/wayfair_192x192.png" width="40"/>                      | Wayfair | [直接传送](wayfair)          | 绕过【按住按钮验证】人机验证    |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/toyotasgamedaygiveaways-img/2025-12-24_17-05-20.png" width="100"/> | Toyota  | 其他原因已下架                  | 绕过【按住按钮验证】人机验证    |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/amazon-passkey-img/Snipaste_2026-08-19_10-35-00.jpg" width="100"/> | Amazon  | [直接传送](amazon-passkey)                  | Amazon Passkey 临时复刻    |
+| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/slider-recognition-img/2026%E5%B9%B48%E6%9C%8827%E6%97%A5%2011_06_17.png" width="100"/> | -  | [直接传送](slider-recognition)                  | 滑块缺口距离离线识别    |
 
 ## 免责声明
 
