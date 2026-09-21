@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 
 class HumanBehaviorSimulator:
+    version: str = "1.1.4"
+
     def slide_match_identify(self, target_data: bytes | str, background_data: bytes | str) -> int:
         """
         target_data 小拼图 可以传 bytes 或 base64数据

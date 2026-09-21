@@ -1,5 +1,6 @@
 # 滑块缺口距离离线识别
 ![Python Version](https://img.shields.io/badge/Python-3.12|3.13|3.14-blue)
+![CAPTCHA](https://img.shields.io/badge/CAPTCHA|version-1.1.4-blue)
 > 支持：Temu/Fruugo/Tiktok/义乌购/GEETEST/数美/网易易盾/简书/腾讯天御/360天御/央视网...
 
 > 支持滑块类型：小拼图 + 背景图
