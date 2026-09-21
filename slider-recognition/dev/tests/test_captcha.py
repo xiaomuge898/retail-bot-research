@@ -75,7 +75,7 @@ class DevelopmentAccuracyTests(unittest.TestCase):
         solver, failures = HumanBehaviorSimulator(), []
         folders = [ROOT / "样本" / f"样本{index}" for index in range(1, 10)]
         cases = [case for folder in folders for case in load_cases(folder)]
-        self.assertEqual(135, len(cases))
+        self.assertEqual(140, len(cases))
 
         for target, background, expected in cases:
             predicted = solver.slide_match_identify(

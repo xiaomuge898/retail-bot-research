@@ -1,6 +1,6 @@
 # 滑块缺口距离离线识别
 ![Python Version](https://img.shields.io/badge/Python-3.12|3.13|3.14-blue)
-> 支持：Temu/Fruugo/Tiktok/义乌购/GEETEST/数美/网易易盾/简书/腾讯天御/360天御/...
+> 支持：Temu/Fruugo/Tiktok/义乌购/GEETEST/数美/网易易盾/简书/腾讯天御/360天御/央视网...
 
 > 支持滑块类型：小拼图 + 背景图
 
@@ -13,7 +13,7 @@
 - 支持图片 `bytes`、纯 Base64 和 Base64 Data URL。
 - 支持透明全高图和普通小拼图等多种图片结构。
 - 结合 alpha 蒙版、高亮轮廓、低饱和特征、多阈值边缘和候选聚类定位缺口。
-- 附带 170 组“小拼图 + 背景图”样本，其中 135 组用于开发适配，35 组用于冻结参数后的回归验证。
+- 附带 175 组“小拼图 + 背景图”样本，其中 140 组用于开发适配，35 组用于冻结参数后的回归验证。
 
 ## 安装
 
@@ -37,24 +37,25 @@ macOS / Linux：
 
 ## 使用
 ```python
-# 引入 CAPTCHA.py 文件
+from CAPTCHA import HumanBehaviorSimulator
+
 hum = HumanBehaviorSimulator()
 # 图片可以是 bytes 或 base64
-xiaopingtu = "bytes 或 base64"
-beijingtu = "bytes 或 base64"
+xiaopingtu = "小拼图 bytes 或 base64"
+beijingtu = "背景图 bytes 或 base64"
 x = hum.slide_match_identify(xiaopingtu, beijingtu)
-print("滑块缺口缺口横坐标", x)
+print("滑块缺口横坐标", x)
 ```
 
 返回值对应原始背景图宽度。若展示页面缩放了图片，需要由调用方按显示宽度与原图宽度的比例换算。
 
 ## 样本包必须先解压
 
-适配算法或运行完整回归测试前，先解压 [`dev/小拼图 + 背景图 样本.zip`](dev/小拼图%20+%20背景图%20样本.zip)，并将解压后的顶层目录重命名为 `dev/样本/`：
+适配算法或运行完整回归测试前，直接解压 [`dev/样本.zip`](dev/%E6%A0%B7%E6%9C%AC.zip)。压缩包内的顶层目录已是 `样本/`，解压后结构如下：
 
 ```text
 dev/样本/
-├── 样本1/ ... 样本9/    # 135 组开发样本
+├── 样本1/ ... 样本9/    # 140 组开发样本
 └── 验证样本/             # 35 组冻结参数后的验证样本
 ```
 

@@ -1,10 +1,10 @@
 {
   "dataset": "样本9",
-  "total": 15,
-  "passed": 15,
+  "total": 20,
+  "passed": 20,
   "max_absolute_error": 2,
-  "mean_absolute_error": 1.2,
-  "within_two_pixels": 15,
+  "mean_absolute_error": 0.95,
+  "within_two_pixels": 20,
   "label_corrections": [
     {
       "sample": "13",
@@ -28,6 +28,11 @@
     {"sample": "12", "expected": 224, "predicted": 224, "absolute_error": 0},
     {"sample": "13", "expected": 177, "predicted": 176, "absolute_error": 1},
     {"sample": "14", "expected": 172, "predicted": 172, "absolute_error": 0},
-    {"sample": "15", "expected": 199, "predicted": 198, "absolute_error": 1}
+    {"sample": "15", "expected": 199, "predicted": 198, "absolute_error": 1},
+    {"sample": "16", "expected": 199, "predicted": 198, "absolute_error": 1},
+    {"sample": "17", "expected": 235, "predicted": 235, "absolute_error": 0},
+    {"sample": "18", "expected": 146, "predicted": 146, "absolute_error": 0},
+    {"sample": "19", "expected": 174, "predicted": 174, "absolute_error": 0},
+    {"sample": "20", "expected": 122, "predicted": 122, "absolute_error": 0}
   ]
 }

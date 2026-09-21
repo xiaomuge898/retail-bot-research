@@ -260,7 +260,7 @@ class HumanBehaviorSimulator:
 if __name__ == "__main__":
     hum = HumanBehaviorSimulator()
     # 本地演示仅在直接运行此文件时执行，导入模块不会读取示例图片。
-    for _ in range(1, 16):
+    for _ in range(1, 21):
         with open(f"dev/样本/样本9/{_}.jpg", "rb") as f:
             beijingtu = f.read()
         with open(f"dev/样本/样本9/{_}.png", "rb") as f:
