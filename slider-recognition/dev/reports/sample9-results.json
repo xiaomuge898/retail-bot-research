@@ -1,0 +1,33 @@
+{
+  "dataset": "样本9",
+  "total": 15,
+  "passed": 15,
+  "max_absolute_error": 2,
+  "mean_absolute_error": 1.2,
+  "within_two_pixels": 15,
+  "label_corrections": [
+    {
+      "sample": "13",
+      "original": 117,
+      "corrected": 177,
+      "reason": "用户确认原标注有误"
+    }
+  ],
+  "cases": [
+    {"sample": "1", "expected": 200, "predicted": 199, "absolute_error": 1},
+    {"sample": "2", "expected": 172, "predicted": 170, "absolute_error": 2},
+    {"sample": "3", "expected": 251, "predicted": 249, "absolute_error": 2},
+    {"sample": "4", "expected": 230, "predicted": 229, "absolute_error": 1},
+    {"sample": "5", "expected": 206, "predicted": 204, "absolute_error": 2},
+    {"sample": "6", "expected": 239, "predicted": 237, "absolute_error": 2},
+    {"sample": "7", "expected": 177, "predicted": 175, "absolute_error": 2},
+    {"sample": "8", "expected": 182, "predicted": 181, "absolute_error": 1},
+    {"sample": "9", "expected": 191, "predicted": 191, "absolute_error": 0},
+    {"sample": "10", "expected": 106, "predicted": 104, "absolute_error": 2},
+    {"sample": "11", "expected": 250, "predicted": 251, "absolute_error": 1},
+    {"sample": "12", "expected": 224, "predicted": 224, "absolute_error": 0},
+    {"sample": "13", "expected": 177, "predicted": 176, "absolute_error": 1},
+    {"sample": "14", "expected": 172, "predicted": 172, "absolute_error": 0},
+    {"sample": "15", "expected": 199, "predicted": 198, "absolute_error": 1}
+  ]
+}

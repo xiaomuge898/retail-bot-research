@@ -73,9 +73,9 @@ class DevelopmentAccuracyTests(unittest.TestCase):
 
     def test_all_development_samples_are_within_three_pixels(self) -> None:
         solver, failures = HumanBehaviorSimulator(), []
-        folders = [ROOT / "样本" / f"样本{index}" for index in range(1, 9)]
+        folders = [ROOT / "样本" / f"样本{index}" for index in range(1, 10)]
         cases = [case for folder in folders for case in load_cases(folder)]
-        self.assertEqual(120, len(cases))
+        self.assertEqual(135, len(cases))
 
         for target, background, expected in cases:
             predicted = solver.slide_match_identify(
@@ -91,7 +91,7 @@ class ValidationAccuracyTests(unittest.TestCase):
     def test_every_validation_sample_is_within_three_pixels(self) -> None:
         solver, failures = HumanBehaviorSimulator(), []
         cases = load_cases(ROOT / "样本/验证样本")
-        self.assertEqual(30, len(cases))
+        self.assertEqual(35, len(cases))
 
         for target, background, expected in cases:
             predicted = solver.slide_match_identify(

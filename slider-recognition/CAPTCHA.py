@@ -71,6 +71,9 @@ class HumanBehaviorSimulator:
             raise ValueError("滑块有效区域超出背景图片范围")
 
         aspect_ratio = background.shape[1] / background.shape[0]
+        if self._has_bright_alpha_outline(piece, mask):
+            return self._match_alpha_contour_gap(background, mask, box), y1
+
         if aspect_ratio < 1.6:
             return self._saturation_candidate(background, mask, y1) + 1, y1
 
@@ -87,6 +90,60 @@ class HumanBehaviorSimulator:
             raise ValueError("未找到有效的滑块边缘候选")
         border_offset = 3 if background.shape[1] >= 500 else 0
         return best_x + border_offset, y1
+
+    @staticmethod
+    def _has_bright_alpha_outline(piece: np.ndarray, mask: np.ndarray) -> bool:
+        """判断拼图是否使用高亮描边；此类图片应匹配轮廓而非内部纹理。"""
+        effective_mask = mask > 10
+        eroded_mask = cv2.erode(
+            effective_mask.astype(np.uint8), np.ones((3, 3), np.uint8)
+        ).astype(bool)
+        boundary_mask = effective_mask & ~eroded_mask
+        boundary_size = int(np.count_nonzero(boundary_mask))
+        if boundary_size == 0:
+            return False
+
+        bright_pixels = np.min(piece, axis=2) > 220
+        return np.count_nonzero(bright_pixels & boundary_mask) / boundary_size >= 0.5
+
+    @staticmethod
+    def _match_alpha_contour_gap(
+            background: np.ndarray, mask: np.ndarray,
+            box: tuple[int, int, int, int]
+    ) -> int:
+        """
+        使用 alpha 外轮廓定位带高亮描边的缺口。
+
+        这类拼图内部保留原图纹理，直接做纹理边缘匹配容易命中背景中的
+        相似物体；alpha 轮廓则只描述验证码生成器绘制的拼图几何形状。
+        """
+        _, y1, _, y2 = box
+        height, width = mask.shape
+        if height > background.shape[0] or width > background.shape[1]:
+            raise ValueError("滑块蒙版尺寸超过背景图片范围")
+
+        binary_mask = (mask > 10).astype(np.uint8) * 255
+        contour = cv2.morphologyEx(
+            binary_mask, cv2.MORPH_GRADIENT, np.ones((3, 3), np.uint8)
+        )
+        background_edge = cv2.Canny(
+            cv2.cvtColor(background, cv2.COLOR_BGR2GRAY), 150, 255
+        )
+
+        # alpha 已提供可靠纵坐标，仅保留少量抗锯齿/编码偏移余量。
+        search_top = max(0, y1 - 3)
+        search_bottom = min(background.shape[0], y2 + 3)
+        search_area = background_edge[search_top:search_bottom]
+        if search_area.shape[0] < height:
+            raise ValueError("滑块有效区域超出背景图片范围")
+
+        result = cv2.matchTemplate(
+            search_area, contour, cv2.TM_CCORR_NORMED
+        )
+        _, score, _, location = cv2.minMaxLoc(result)
+        if not np.isfinite(score) or score < 0.2:
+            raise ValueError("未找到可信的滑块轮廓候选")
+        return int(location[0])
 
     def _edge_candidates(
             self, background: np.ndarray, piece: np.ndarray, thresholds: tuple[int, ...]
@@ -203,9 +260,10 @@ class HumanBehaviorSimulator:
 if __name__ == "__main__":
     hum = HumanBehaviorSimulator()
     # 本地演示仅在直接运行此文件时执行，导入模块不会读取示例图片。
-    with open("7.jpg", "rb") as f:
-        beijingtu = f.read()
-    with open("7.png", "rb") as f:
-        xiaopingtu = f.read()
-    x = hum.slide_match_identify(xiaopingtu, beijingtu)
-    print("滑块缺口距离", x)
+    for _ in range(1, 16):
+        with open(f"dev/样本/样本9/{_}.jpg", "rb") as f:
+            beijingtu = f.read()
+        with open(f"dev/样本/样本9/{_}.png", "rb") as f:
+            xiaopingtu = f.read()
+        x = hum.slide_match_identify(xiaopingtu, beijingtu)
+        print(f"{_}.jpg 滑块缺口距离", x)

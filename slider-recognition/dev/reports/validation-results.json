@@ -1,9 +1,10 @@
 {
-  "total": 30,
-  "passed": 30,
+  "dataset": "验证样本",
+  "total": 35,
+  "passed": 35,
   "max_absolute_error": 3,
-  "mean_absolute_error": 1.133,
-  "within_two_pixels": 27,
+  "mean_absolute_error": 1.057,
+  "within_two_pixels": 32,
   "cases": [
     {
       "sample": "1",
@@ -20,8 +21,8 @@
     {
       "sample": "3",
       "expected": 143,
-      "predicted": 143,
-      "absolute_error": 0
+      "predicted": 144,
+      "absolute_error": 1
     },
     {
       "sample": "4",
@@ -184,6 +185,36 @@
       "expected": 187,
       "predicted": 185,
       "absolute_error": 2
+    },
+    {
+      "sample": "31",
+      "expected": 229,
+      "predicted": 228,
+      "absolute_error": 1
+    },
+    {
+      "sample": "32",
+      "expected": 239,
+      "predicted": 239,
+      "absolute_error": 0
+    },
+    {
+      "sample": "33",
+      "expected": 146,
+      "predicted": 146,
+      "absolute_error": 0
+    },
+    {
+      "sample": "34",
+      "expected": 146,
+      "predicted": 146,
+      "absolute_error": 0
+    },
+    {
+      "sample": "35",
+      "expected": 238,
+      "predicted": 239,
+      "absolute_error": 1
     }
   ]
 }
