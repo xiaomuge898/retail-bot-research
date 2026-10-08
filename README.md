@@ -9,6 +9,7 @@
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/toyotasgamedaygiveaways-img/2025-12-24_17-05-20.png" width="100"/> | Toyota  | 其他原因已下架                  | 绕过【按住按钮验证】人机验证    |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/amazon-passkey-img/Snipaste_2026-08-19_10-35-00.jpg" width="100"/> | Amazon  | [直接传送](amazon-passkey)                  | Amazon Passkey 临时复刻    |
 | <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/slider-recognition-img/2026%E5%B9%B48%E6%9C%8827%E6%97%A5%2011_06_17.png" width="100"/> | -  | [直接传送](slider-recognition)                  | 滑块缺口距离离线识别    |
+| <img height="40" src="https://raw.githubusercontent.com/xiaomuge898/xiaomuge898/refs/heads/main/geetest-img/c5acdea7cd1a46573a3676f470e0947d.jpg" width="100"/> | Geetest | [直接传送](geetest/gt4)                  | 极验4全人机验证，`w、td`参数生成源码含ast解混淆程序    |
 
 ## 免责声明
 
@@ -17,7 +18,7 @@
 
 ## 本项目里固定的版本号
 ![Python Version](https://img.shields.io/badge/Python-3.12-blue)
-![Node Version](https://img.shields.io/badge/Node-v20.11.0%20|%20v22.17.1-blue)
+![Node Version](https://img.shields.io/badge/Node-v20.11.0%20|%20v22.17.1|%20v24.16.0新-blue)
 
 ## 使用方法
 1. 请根据不同平台项目内的README.md介绍，进行安装模块使用
