@@ -89,7 +89,7 @@ console.log(t.default(data, options))
     "td_sign": "f65579333f4b539cd3c1907ee944dc4770e05f115bbb692fd41a9ad42e7c9337"
 }
 ```
-- `userresponse` 这个坐标点是经过处理后得出的，可以直接从轨迹(end)内提取，然后使用下方代码把轨迹的xy坐标转换成web像素px，然后在后面添加两位随机小数即可，最好不要让第一个小数大于等于5，因为按照官方代码逻辑，大于大于5则会进一，那么可能会出现偏差，导致值无法对应（官方没有这么严谨，可以忽略不计）
+- `userresponse` 这个坐标点是经过处理后得出的，可以直接从轨迹(end)内提取，然后使用下方代码把轨迹的xy坐标转换成web像素px，然后在后面添加两位随机小数即可，最好不要让第一个小数大于等于5，因为按照官方代码逻辑，大于等于5则会进一，那么可能会出现偏差，导致值无法对应（官方没有这么严谨，可以忽略不计）
 ```js
 function randomDecimal(integer) {
     integer = Math.floor(integer);
@@ -119,7 +119,7 @@ console.log(JSON.stringify(parseLotNumber("e6b9633e58214da6980d777a20ae8c68")))
 // {"980d":{"b963777a":{"808d":"7a20"}}}
 ```
 
-- `pow_msg` 是用 已知参数+随机参数 进行组合而成。`pow_sign` 是通过将 `pow_msg` 哈希得来的，使用 `md5/sha256/...?` 需要依赖 `pow_detail.hashfunc`。 还有一个 `bits` 参数很重要，当他是非 `0` 时，则代表他对 `pow_sign` 有要求，如下面js代码所示，会陷入无限循环，每次循环都会刷新随机值，`pow_sign` 的值也会发送变化，直到 `pow_sign` 达到要求后跳出循环。
+- `pow_msg` 是用 已知参数+随机参数 进行组合而成。`pow_sign` 是通过将 `pow_msg` 哈希得来的，使用 `md5/sha256/...?` 需要依赖 `pow_detail.hashfunc`。 还有一个 `bits` 参数很重要，当他是非 `0` 时，则代表他对 `pow_sign` 有要求，如下面js代码所示，会陷入无限循环，每次循环都会刷新随机值，`pow_sign` 的值也会发送变化，直到 `pow_sign` 达到要求后才会跳出循环。
 
 ```js
 // pow_detail.version|pow_detail.bits|pow_detail.hashfunc|device_id|pow_detail.datetime|captcha_id|lot_number||{{参数}}
