@@ -147,7 +147,7 @@ function _ᕺᖄᖃᖚ() {}
 
 
 // 读取要解混淆的js文件
-var ast_code = fs.readFileSync("./【极验4的源码】gcaptcha4.js", {encoding: 'utf-8'});
+var ast_code = fs.readFileSync("./gcaptcha4-v1.9.7.js", {encoding: 'utf-8'});
 // 将js代码转ast树
 const ast_parse = parser.parse(ast_code);
 function hasEnglishOrNumber(str) {

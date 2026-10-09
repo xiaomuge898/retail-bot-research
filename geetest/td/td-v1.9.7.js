@@ -1,5 +1,5 @@
 // 导入解混淆的包
-const _ᕺᖄᖃᖚ = require('./decongestion.js')._ᕺᖄᖃᖚ
+const _ᕺᖄᖃᖚ = require('./decongestion-v1.9.7.js')._ᕺᖄᖃᖚ
 
 typeof window == "undefined" ? window = global : null;
 !function(e) {
@@ -1403,39 +1403,19 @@ t = jzq(0)
 j = jzq(1)
 
 
-// 轨迹，先写死
-const points =[
-    {
-        "x": 9,
-        "y": 121,
-        "width": 286.7021179199219,
-        "height": 248.07861328125,
-        "t": 0,
-        "type": "start",
-        "source": 1,
-        "pressure": 0
-    },
-    {
-        "x": 6,
-        "y": 100,
-        "width": 286.7021179199219,
-        "height": 248.07861328125,
-        "t": 54,
-        "type": "move",
-        "source": 1,
-        "pressure": 0
-    },
-    {
-        "x": 39,
-        "y": 90,
-        "width": 286.70208740234375,
-        "height": 248.07861328125,
-        "t": 73,
-        "type": "move",
-        "source": 1,
-        "pressure": 0
-    }
-]
+/*
+逆向可测试网站地址 https://www.ui07nxj.com/login
+版本：version 1.9.7
+参数位数：无固定
+执行环境：Node / 浏览器
+补环境：无须补环境
+扣代码的日期：2026-10-03
+代码更新日期：2026-10-10
+*/
+
+// 轨迹，先写死...
+const points =[{"x":301,"y":100,"width":301.79168701171875,"height":261.13543701171875,"t":0,"type":"start","source":1,"pressure":0},{"x":289,"y":103,"width":301.79168701171875,"height":261.13543701171875,"t":17,"type":"move","source":1,"pressure":0},{"x":281,"y":106,"width":301.79168701171875,"height":261.13543701171875,"t":34,"type":"move","source":1,"pressure":0},{"x":267,"y":108,"width":301.79168701171875,"height":261.13543701171875,"t":51,"type":"move","source":1,"pressure":0},{"x":252,"y":110,"width":301.79168701171875,"height":261.13543701171875,"t":69,"type":"move","source":1,"pressure":0},{"x":243,"y":111,"width":301.79168701171875,"height":261.13543701171875,"t":88,"type":"move","source":1,"pressure":0},{"x":243,"y":108,"width":301.79168701171875,"height":261.13543701171875,"t":162,"type":"move","source":1,"pressure":0},{"x":242,"y":106,"width":301.79168701171875,"height":261.13543701171875,"t":212,"type":"move","source":1,"pressure":0},{"x":241,"y":104,"width":301.79168701171875,"height":261.13543701171875,"t":231,"type":"move","source":1,"pressure":0},{"x":241,"y":102,"width":301.79168701171875,"height":261.13543701171875,"t":257,"type":"move","source":1,"pressure":0}]
+
 // 轨迹转换处理，$Set 是自写方法
 const trajectory_processing = t.default.prototype.$Set(points)
 console.log("轨迹二次处理后 -> ", JSON.stringify(trajectory_processing))

@@ -1,5 +1,5 @@
 // 导入解混淆的包
-const _ᕺᖄᖃᖚ = require('./decongestion.js')._ᕺᖄᖃᖚ
+const _ᕺᖄᖃᖚ = require('./decongestion-v1.9.7.js')._ᕺᖄᖃᖚ
 
 typeof window == "undefined" ? window = global : null;
 !function(e) {
@@ -7756,8 +7756,19 @@ typeof window == "undefined" ? window = global : null;
     }
 });
 
+
+/*
+逆向可测试网站地址 https://www.ui07nxj.com/login
+版本：version 1.9.7
+参数位数：无固定
+执行环境：Node / 浏览器
+补环境：无须补环境
+扣代码的日期：2026-10-03
+代码更新日期：2026-10-10
+*/
+
 t = jzq(99999)
 var options = {"options": {"pt": "1"}}
-var data = '{"passtime":3080,"userresponse":[[5254,4427],[2669,5073],[6215,1496]],"device_id":"","lot_number":"e6b9633e58214da6980d777a20ae8c68","pow_msg":"1|0|md5|2026-10-08 09:28:33.778174+08:00|008c0c24dd9338263c30346ef695e1d3|e6b9633e58214da6980d777a20ae8c68||5a3ace11be631602","pow_sign":"780807f0638e82be95b040d29cc81fa4","geetest":"captcha","lang":"zh","ep":"123","biht":"1426265548","d4tf":"9342","980d":{"b963777a":{"808d":"7a20"}},"em":{"ph":0,"cp":0,"ek":"11","wd":1,"nt":0,"si":0,"sc":0},"td_sign":"f65579333f4b539cd3c1907ee944dc4770e05f115bbb692fd41a9ad42e7c9337"}'
+var data = '{"setLeft":200,"passtime":1240,"userresponse":200.81769742597356,"device_id":"","lot_number":"2032db54036b4f8e94d91fa842fe849c","pow_msg":"1|8|sha256|2026-10-10 02:06:55.139711+08:00|54088bb07d2df3c46b79f80300b0abbe|2032db54036b4f8e94d91fa842fe849c||a22a76554378f01c","pow_sign":"00a8f03e8266667794bc9e9648ba606bff54858b9710d939a1a793a1fb89dea5","geetest":"captcha","lang":"zh","ep":"123","biht":"1426265548","gee_guard":{"roe":{"aup":"3","sep":"3","egp":"3","auh":"3","rew":"3","snh":"3","res":"3","cdc":"3"}},"d4tf":"9342","94d9":{"32db1fa8":{"8d3f":"a842"}},"em":{"ph":0,"cp":0,"ek":"11","wd":1,"nt":0,"si":0,"sc":0},"td_sign":"b6777410d9e60cd6b022df4f1392162d887291e31ee0e850f0e7eddbdd51aa25"}'
 
 console.log(t.default(data, options))

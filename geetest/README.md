@@ -4,45 +4,50 @@
 
 > 支持人机验证类型：滑动拼图验证/消消乐验证/文字点选验证/图标点选验证/字序点选验证/五子棋验证/九宫格验证/一键通过/svg图标验证
 
-> 支持生成的载荷参数：w、td
-
-
 > [!CAUTION]
 > 此库仅用于教育和研究目的。使用此库即表示您同意遵守本地和国际数据抓取和隐私法律。作者和贡献者对本仓库代码的任何滥用不承担责任。始终尊重网站的服务条款和法律法规。
 
-### [点击直达官网 geetest4 Demo 测试](http://gt4.geetest.com/)
+### 测试网址
+|网站|host|版本|人机类型|传送|
+|--|:--:|--|:--:|--|
+|官方geetest4 Demo 测试|http://gt4.geetest.com|v1.9.7|全部|[点击直达](http://gt4.geetest.com/)|
+|七星影院|https://www.ui07nxj.com|v1.9.8|文字语序点选/图标点选|[点击直达](https://www.ui07nxj.com/login)|
 
-`说明：支持纯node环境运行，所有的参数生成均无须补环境。`
-|key|value|
-|--|--|
-|记录日期|2026-10-03|
-|更新日期|2026-10-08|
-|目标参数|td + w|
-|极验版本|gt4|
-|算法版本|v1.9.7|
-|Node|v24.16.0|
-|类型|webpack + 混淆|
-|官方源码|[./source_gcaptcha4.js](./source_gcaptcha4.js)|
-|ast解混淆后（可直接代替源码）|[./ast_gcaptcha4.js](./ast_gcaptcha4.js)|
-|ast解混淆程序|[./ast_src/run.js](./ast_src/run.js)|
-|w 参数生成|[./w_generate.js](./w_generate.js)|
-|td 参数生成|[./td_generate.js](./td_generate.js)|
+### 解混淆后JS文件
+
+`此混淆相对OB混淆，略微复杂一点点，但也可直接使用 ast 进行解混淆，并支持格式化`
+
+- 这个是官方的源码和解混淆处理后的源码，可以直接在浏览器进行替换，变量没法恢复，但至少增加了可读性。
+
+`gt4.js 是第三方人机验证的主脚本，他的版本是由官方统一更新迭代，和参数生成无关，但和接口验证逻辑相关，一旦官方更新，则代表接口的验证逻辑可能发生变化。` 
+
+`gcaptcha4.js 是第三方人机验证参数生成的核心脚本，不同的版本，参数生成或加密参数的逻辑不同，通常不能共用同一种脚本生成参数` 
+
+`人机验证类型通常由 captcha_id 用户控制`
+
+![gt4](https://img.shields.io/badge/gt4-v4.2.1-blue)
+![gcaptcha4](https://img.shields.io/badge/gcaptcha4-v1.9.7-blue)
+
+|-|name|path|docs|
+|:--|--|--|--|
+|🤖主加载器（源码）|gt4-v4.2.1|[点击跳转](./source_src/gt4-v4.2.1/gt4-v4.2.1.js)|风控验证主脚本，未修改。|
+|人机验证（源码）|gcaptcha4-v1.9.7|[点击跳转](./source_src/gcaptcha4-v1.9.7/gcaptcha4-v1.9.7.js)|1.9.7 版本的官方源码，未处理前|
+|人机验证（解混淆后）|gcaptcha4-v1.9.7|[点击跳转](./decongestion_src/gcaptcha4-v1.9.7/gcaptcha4-v1.9.7.js)|1.9.7 版本源码解混淆后，可直接用于浏览器替换。|
+|🛠️ast解混淆程序|gcaptcha4-v1.9.7|[点击跳转](./decongestion_src/gcaptcha4-v1.9.7/ast_src/run.js)|1.9.7 版本的人机验证 `gcaptcha4.js` 专用解混淆脚本 |
 
 
+### 支持生成的载荷参数
 
-## ast 解混淆
+`请自行比对版本，请使用版本一致的js，【w、td】这两个参数是可以用于所有类型的人机验证，不同类型的人机验证，需要自行修改一下 w 传参即可，方法函数都已存在。`
 
-#### 先使用 pnpm 安装模块包
-```sh
-cd ./ast_src
-pnpm install
-```
-#### run.js 是入口文件，修改要解混淆的js文件路径和输出文件路径
-```js
-var ast_code = fs.readFileSync("./【极验4的源码】gcaptcha4.js", {encoding: 'utf-8'});
+`当一个参数内有两个版本时，则代表当前js生成的参数同时支持两个版本`
 
-fs.writeFile("./解密后-结果.js", output, (err) => {});
-```
+|逆向更新日期|参数|版本|位数|传送|
+|--|:--:|--|:--:|--|
+|2026-10-08|w|v1.9.7/v1.9.8|无固定|[w-v1.9.7.js](./w/w-v1.9.7.js)|
+|2026-10-08|td|v1.9.7/v1.9.8|无固定|[td-v1.9.7.js](./td/td-v1.9.7.js)|
+
+
 
 ## `w` 参数生成
 
