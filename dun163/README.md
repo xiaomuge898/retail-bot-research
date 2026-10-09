@@ -31,6 +31,7 @@
 |2026-10-09|cb|v2.28.5|92位|[cb-v2.28.5.js](./cb/cb-v2.28.5.js)|
 |2026-10-09|fp|v2.28.5|190位|[fp-v2.28.5.js](./fp/fp-v2.28.5.js)|
 |2026-10-09|NECaptchaValidate|v2.28.5|531位|[NECaptchaValidate-v2.28.5.js](./NECaptchaValidate/NECaptchaValidate-v2.28.5.js)|
+|2026-10-09|data|v2.28.5|无固定|[data-v2.28.5.js](./data/data-v2.28.5.js)|
 
 ### `cb` 参数生成详解
 - 这个参数生成不依赖浏览器环境指纹，只要把代码一个一个扣下来即可，要多注意 `try` 异常包，可能会出现异常不抛出仅返回空值。
@@ -91,3 +92,15 @@
 
 ### `NECaptchaValidate` 参数生成详解
 - 这个参数和 `cb` 参数生成用的是同一个方法，直接照搬过来即可使用。
+
+### `data` 参数生成详解
+- 这个参数也是扣代码，和 `cb` 和 `fp` 方法是一样的，但需要额外补充一些缺失的方法。
+- 我将 `cb`、`fp`、`NECaptchaValidate` 三种参数组合到一个 `data` 文件内，支持所有的参数生成。
+```js
+e.fp = _0x28c2a9;     // fp 参数生成
+e.cb = _0x62692;      // cb 参数生成
+e.NECaptchaValidate = _0xab267f;    // NECaptchaValidate 参数生成
+e.sliderVerifyCaptcha = sliderVerifyCaptcha;    // 滑块 data 参数生成
+e.textClickVerifyCaptcha = textClickVerifyCaptcha;    // 文字点选 data 参数生成
+... // 所有的data都差不多，自行补全吧，代码我都扣完了，直接补一下不同类型的 data 参数生成逻辑即可
+```
