@@ -25,7 +25,7 @@
 
 
 ![load.min](https://img.shields.io/badge/load.min-v2.5.4-blue)
-![core*](https://img.shields.io/badge/core%2A-v2.28.5%7Cv2.21.5-blue)
+![core*](https://img.shields.io/badge/core%2A-v2.21.5%7Cv2.28.5-blue)
 
 |-|name|path|docs|
 |:--|--|:--:|--|
