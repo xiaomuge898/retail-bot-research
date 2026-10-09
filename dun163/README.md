@@ -27,7 +27,7 @@
 `请自行比对版本，请使用版本一致的js`
 
 |逆向更新日期|参数|版本|位数|传送|
-|--|--|--|--|--|
+|--|:--:|--|:--:|--|
 |2026-10-09|cb|v2.28.5|92位|[cb-v2.28.5.js](./cb/cb-v2.28.5.js)|
 |2026-10-09|fp|v2.28.5|190位|[fp-v2.28.5.js](./fp/fp-v2.28.5.js)|
 |2026-10-09|NECaptchaValidate|v2.28.5|531位|[NECaptchaValidate-v2.28.5.js](./NECaptchaValidate/NECaptchaValidate-v2.28.5.js)|
