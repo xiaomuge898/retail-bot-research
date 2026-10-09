@@ -25,11 +25,14 @@
 
 
 ![load.min](https://img.shields.io/badge/load.min-v2.5.4-blue)
-![core*](https://img.shields.io/badge/core%2A-v2.28.5-blue)
+![core*](https://img.shields.io/badge/core%2A-v2.28.5%7Cv2.21.5-blue)
 
 |-|name|path|docs|
-|:--|--|--|--|
+|:--|--|:--:|--|
 |🤖主加载器（处理后）|load.min-v2.5.4|[点击跳转](./decongestion_src/load.min-v2.5.4/load.min.js)|风控验证主脚本已优化，移除人机验证链接末尾的时间戳参数，防止刷新网页导致断点丢失。|
+|人机验证（源码）|core-v2.21.5|[点击跳转](./source_src/core-v2.21.5/core.v2.21.5.min.js)|2.21.5 版本的官方源码，未处理前|
+|人机验证（解混淆后）|core-v2.21.5|[点击跳转](./decongestion_src/core-v2.21.5/core.v2.21.5.min.js)|2.21.5 版本源码解混淆后，可直接用于浏览器替换。|
+|🛠️ast解混淆程序|core-v2.21.5|[点击跳转](./decongestion_src/core-v2.21.5/ast_src/run.js)|2.21.5 版本的人机验证 `core*.js` 专用解混淆脚本 |
 |人机验证（源码）|core-optimi-v2.28.5|[点击跳转](./source_src/core-optimi-v2.28.5/core-optimi.m25b40.v2.28.5.min.js)|2.28.5 版本的官方源码，未处理前|
 |人机验证（解混淆后）|core-optimi-v2.28.5|[点击跳转](./decongestion_src/core-optimi-v2.28.5/core-optimi.m25b40.v2.28.5.min.js)|2.28.5 版本源码解混淆后，可直接用于浏览器替换。|
 |🛠️ast解混淆程序|core-optimi-v2.28.5|[点击跳转](./decongestion_src/core-optimi-v2.28.5/ast_src/run.js)|2.28.5 版本的人机验证 `core-optimi*.js` 专用解混淆脚本 |
