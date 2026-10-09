@@ -1077,14 +1077,24 @@ typeof global === 'undefined' ? null : window = global;
             "ext": _0x3ebd00(_0x3855dc(token, 1 + "," + traceData.length))
         })
     }
-
+    function coordinate(atomTraceData){
+        var s = atomTraceData.at(-1)[0]
+        // 移动像素在20以内
+        if (20 >= s){
+            return s - (s + s % 2) / 2
+        }
+        if (s > 259){
+            return s - 11 - (s - 259 + (s - 259) % 2) / 2
+        }
+        return s - 11
+    }
     function sliderVerifyCaptcha(atomTraceData, token){
         // 轨迹数组加密（官方在收集轨迹时就已经加密了）
         // 将正常的轨迹数组复制并全部加密
         var traceData = atomTraceData.map((e)=>{return _0x3855dc(token, e+"")})
         
         var _0x4a4a62 = _0x11cfc7["sample"](traceData, 50)
-        var _0x15278a = _0x3ebd00(_0x3855dc(token, (atomTraceData.at(-1)[0] - 11) / 320 * 100 + ""))
+        var _0x15278a = _0x3ebd00(_0x3855dc(token, coordinate(atomTraceData) / 320 * 100 + ""))
         var _0x4d98f2 = _0x6e07ce(_0x11cfc7["unique2DArray"](atomTraceData, 2));
 
         return JSON.stringify({
