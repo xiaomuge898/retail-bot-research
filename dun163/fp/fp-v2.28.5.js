@@ -297,7 +297,6 @@ typeof global === 'undefined' ? null : window = global;
         return _0x2220aa && _0x3c49ba["push"](_0x450e08),
         _0x3c49ba["join"]("");
     }
-
     function _0x28c2a9(host, kind='') {
         var _0x7265d3 = {};
         _0x7265d3["v"] = "v1.1";
@@ -461,3 +460,4 @@ typeof global === 'undefined' ? null : window = global;
 // fp("对应网站的host域名", '指纹种子')
 
 console.log(fp("www.xiaoshouyi.com", '65346234624234657'))
+// RMhBb9hDqoQmqZP+EWwNCPNiXf6/0tjNHkSqp\8NXeHnjCZ8AxJ71zLw/hKYE4dllcniOvdupHSUzGdEXjea\BmpkSw0I49E9+PNs4SemYY+c\eaM2plR6YMi9RzzHCeaozwl1qrYAbiveu\ADd+UVwc2GLVlH8uS\Qg9k7\ckcZi2nb:1791508231737
