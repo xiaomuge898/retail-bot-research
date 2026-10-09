@@ -5,7 +5,13 @@
 > [!CAUTION]
 > 此库仅用于教育和研究目的。使用此库即表示您同意遵守本地和国际数据抓取和隐私法律。作者和贡献者对本仓库代码的任何滥用不承担责任。始终尊重网站的服务条款和法律法规。
 
-### [点击直达官网 网易易盾 Demo 测试](https://dun.163.com/trial/jigsaw)
+### 测试网址
+|网站|host|版本|人机类型|传送|
+|--|:--:|--|:--:|--|
+|官方网易易盾 Demo 测试|https://dun.163.com|v2.28.5|全部|[点击直达](https://dun.163.com/trial/jigsaw)|
+|163邮箱|https://mail.163.com|v2.21.5|滑块/文字点选/无感|[点击直达](https://mail.163.com/)|
+|销售云|https://www.xiaoshouyi.com|v2.28.5|滑块|[点击直达](https://www.xiaoshouyi.com/register)|
+
 
 ### 解混淆后JS文件
 
@@ -13,23 +19,34 @@
 
 - 这个是官方的源码和解混淆处理后的源码，可以直接在浏览器进行替换，变量没法恢复，但至少增加了可读性。
 
-|-|name|path|
-|:--|--|--|
-|源码|core-optimi-v2.28.5|[点击跳转](./source_src/core-optimi-v2.28.5/core-optimi.m25b40.v2.28.5.min.js)|
-|解混淆后|core-optimi-v2.28.5|[点击跳转](./decongestion_src/core-optimi-v2.28.5/core-optimi.m25b40.v2.28.5.min.js)|
-|ast解混淆程序|core-optimi-v2.28.5|[点击跳转](./decongestion_src/core-optimi-v2.28.5/ast_src/run.js)|
-|源码|ir-v2.0.13|[点击跳转](./source_src/ir-v2.0.13/ir.2.0.13.min.js)|
+`load.min*.js 是第三方人机验证的主脚本，他的版本是由官方统一更新迭代，和参数生成无关，但和接口验证逻辑相关，一旦官方更新，则代表接口的验证逻辑可能发生变化。` 
+
+`core-optimi*.js、core*.js 是第三方人机验证参数生成的核心脚本，不同的版本，参数生成的逻辑不同，通常不能共用同一种脚本生成参数` 
+
+
+![load.min](https://img.shields.io/badge/load.min-v2.5.4-blue)
+![core*](https://img.shields.io/badge/core%2A-v2.28.5-blue)
+
+|-|name|path|docs|
+|:--|--|--|--|
+|🤖主加载器（处理后）|load.min-v2.5.4|[点击跳转](./decongestion_src/load.min-v2.5.4/load.min.js)|风控验证主脚本已优化，移除人机验证链接末尾的时间戳参数，防止刷新网页导致断点丢失。|
+|人机验证（源码）|core-optimi-v2.28.5|[点击跳转](./source_src/core-optimi-v2.28.5/core-optimi.m25b40.v2.28.5.min.js)|2.28.5 版本的官方源码，未处理前|
+|人机验证（解混淆后）|core-optimi-v2.28.5|[点击跳转](./decongestion_src/core-optimi-v2.28.5/core-optimi.m25b40.v2.28.5.min.js)|2.28.5 版本源码解混淆后，可直接用于浏览器替换。|
+|🛠️ast解混淆程序|core-optimi-v2.28.5|[点击跳转](./decongestion_src/core-optimi-v2.28.5/ast_src/run.js)|2.28.5 版本的人机验证 `core-optimi*.js` 专用解混淆脚本 |
+|其他（源码）|ir-v2.0.13|[点击跳转](./source_src/ir-v2.0.13/ir.2.0.13.min.js)|...|
 
 
 
 ### 支持生成的载荷参数
 
-`请自行比对版本，请使用版本一致的js`
+`请自行比对版本，请使用版本一致的js，【cb、fp、NECaptchaValidate】这三个参数是可以用于所有类型的人机验证，【data】不同类型的人机验证，需要自行修改一下加密逻辑即可，方法函数都已存在。`
+
+`当一个参数内有两个版本时，则代表当前js生成的参数同时支持两个版本`
 
 |逆向更新日期|参数|版本|位数|传送|
 |--|:--:|--|:--:|--|
 |2026-10-09|cb|v2.28.5|92位|[cb-v2.28.5.js](./cb/cb-v2.28.5.js)|
-|2026-10-09|fp|v2.28.5|190位|[fp-v2.28.5.js](./fp/fp-v2.28.5.js)|
+|2026-10-09|fp|v2.28.5/v2.21.5|190位|[fp-v2.28.5.js](./fp/fp-v2.28.5.js)|
 |2026-10-09|NECaptchaValidate|v2.28.5|531位|[NECaptchaValidate-v2.28.5.js](./NECaptchaValidate/NECaptchaValidate-v2.28.5.js)|
 |2026-10-09|data|v2.28.5|无固定|[data-v2.28.5.js](./data/data-v2.28.5.js)|
 
