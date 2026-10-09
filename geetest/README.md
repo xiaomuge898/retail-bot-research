@@ -51,7 +51,13 @@
 
 
 
-## `w` 参数生成
+## 📚 `w` 参数生成
+
+<details>
+
+<summary>🔧 版本兼容：v1.9.7 / v1.9.8</summary>
+
+`w 参数只扣了 v1.9.7 版本，此版本生成的参数也支持 v1.9.8 版本使用，下面解释都将围绕此版本详解`
 
 #### 将 `w_generate.js` 和 `decongestion.js` 一并下载到统一目录，修改 `data` 和 `options` 值后进行生成
 ```js
@@ -176,8 +182,15 @@ console.log(s("e6b9633e58214da6980d777a20ae8c68", "008c0c24dd9338263c30346ef695e
 
 - `td_sign` 参数是由 `td` 结果用 `sha256` 哈希得出
 
+</details>
 
-## `td` 参数生成
+## 📚 `td` 参数生成
+
+<details>
+
+<summary>🔧 版本兼容：v1.9.7 / v1.9.8</summary>
+
+`td 参数只扣了 v1.9.7 版本，此版本生成的参数也支持 v1.9.8 版本使用，下面解释都将围绕此版本详解`
 
 #### 将 `td_generate.js` 和 `decongestion.js` 一并下载到统一目录，修改 `points` 值后进行生成
 ```js
@@ -228,3 +241,5 @@ console.log("td参数 -> ", j.default(trajectory_processing))
 
 - `pressure` 这个值有两种状态，`0 和 0.5`，分别代表 `已完成、待完成`，鼠标轨迹每次滑动都是 `0`,代表记录已完成，而鼠标点击按下的那一刻，他是 `0.5`，代表 `待完成`，因为鼠标按下去后还没有抬起来，当按下抬起后，那么这个动作即代表完成 `0`。
 
+
+</details>
