@@ -4,4 +4,5 @@
 .idea
 dist
 *.egg-info
+node_modules
 __pycache__
