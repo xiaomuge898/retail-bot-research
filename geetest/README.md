@@ -34,7 +34,9 @@
 |人机验证（源码）|gcaptcha4-v1.9.7|[点击跳转](./source_src/gcaptcha4-v1.9.7/gcaptcha4-v1.9.7.js)|1.9.7 版本的官方源码，未处理前|
 |人机验证（解混淆后）|gcaptcha4-v1.9.7|[点击跳转](./decongestion_src/gcaptcha4-v1.9.7/gcaptcha4-v1.9.7.js)|1.9.7 版本源码解混淆后，可直接用于浏览器替换。|
 |🛠️ast解混淆程序|gcaptcha4-v1.9.7|[点击跳转](./decongestion_src/gcaptcha4-v1.9.7/ast_src/run.js)|1.9.7 版本的人机验证 `gcaptcha4.js` 专用解混淆脚本 |
-
+|人机验证（源码）|gcaptcha4-v1.9.8|[点击跳转](./source_src/gcaptcha4-v1.9.8/gcaptcha4-v1.9.8.js)|1.9.8 版本的官方源码，未处理前|
+|人机验证（解混淆后）|gcaptcha4-v1.9.8|[点击跳转](./decongestion_src/gcaptcha4-v1.9.8/gcaptcha4-v1.9.8.js)|1.9.8 版本源码解混淆后，可直接用于浏览器替换。|
+|🛠️ast解混淆程序|gcaptcha4-v1.9.8|[点击跳转](./decongestion_src/gcaptcha4-v1.9.8/ast_src/run.js)|1.9.8 版本的人机验证 `gcaptcha4.js` 专用解混淆脚本 |
 
 ### 支持生成的载荷参数
 

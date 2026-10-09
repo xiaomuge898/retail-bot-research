@@ -184,7 +184,7 @@ traverse(ast_parse, {
 });
 
 const opts = {
-    compact: true,  // 压缩代码 true:压缩 false:不压缩
+    compact: false,  // 压缩代码 true:压缩 false:不压缩
     jsescOption: {
         minimal: true,   // true:只转义非 ASCII 字符  false:转义所有字符
     }
