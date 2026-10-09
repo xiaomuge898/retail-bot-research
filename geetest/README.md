@@ -26,7 +26,7 @@
 `人机验证类型通常由 captcha_id 用户控制`
 
 ![gt4](https://img.shields.io/badge/gt4-v4.2.1-blue)
-![gcaptcha4](https://img.shields.io/badge/gcaptcha4-v1.9.7-blue)
+![gcaptcha4](https://img.shields.io/badge/gcaptcha4-v1.9.7%7Cv1.9.8-blue)
 
 |-|name|path|docs|
 |:--|--|--|--|
