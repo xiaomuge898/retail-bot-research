@@ -8,8 +8,8 @@
 ### 测试网址
 |网站|host|版本|人机类型|传送|
 |--|:--:|--|:--:|--|
-|官方网易易盾 Demo 测试|https://dun.163.com|v2.28.5|全部|[点击直达](https://dun.163.com/trial/jigsaw)|
 |163邮箱|https://mail.163.com|v2.21.5|滑块/文字点选/无感|[点击直达](https://mail.163.com/)|
+|官方网易易盾 Demo 测试|https://dun.163.com|v2.28.5|全部|[点击直达](https://dun.163.com/trial/jigsaw)|
 |销售云|https://www.xiaoshouyi.com|v2.28.5|滑块|[点击直达](https://www.xiaoshouyi.com/register)|
 
 
