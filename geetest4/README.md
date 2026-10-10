@@ -15,6 +15,11 @@
 |七星影院|https://www.ui07nxj.com|v1.9.8|文字语序点选/图标点选|[点击直达](https://www.ui07nxj.com/login)|
 |Login to ZStack|https://auth.zstack-cloud.com|v1.9.8|滑块|[点击直达](https://auth.zstack-cloud.com/login)|
 |汇联科技 - 统一登录|https://sso.3ypay.com|v1.9.8|滑块|[点击直达](https://sso.3ypay.com/sso/auth)|
+|中原消费金融官网|https://d5.hnzycfc.com|v1.9.8|无感|[点击直达](https://d5.hnzycfc.com/)|
+|精品汇|http://120.92.166.71:8080|v1.9.8|九宫格图片选择验证码|[点击直达](http://120.92.166.71:8080/)|
+|国信运筹|https://120.237.19.80|v1.9.8|无感|[点击直达](https://120.237.19.80/#/index/)|
+|BITIFYX|https://www.bitifyx.com|v1.9.8|无感|[点击直达](https://www.bitifyx.com/register)|
+|CG模型网|https://login.cgmodel.com|v1.9.8|文字点选验证|[点击直达](https://login.cgmodel.com/)|
 
 ### 解混淆后JS文件
 
