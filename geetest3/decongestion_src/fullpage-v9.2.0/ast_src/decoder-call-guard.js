@@ -1,7 +1,7 @@
 const types = require("@babel/types");
 
 const DECODER_OBJECT_NAME = "Vwtrj";
-const DECODER_METHOD_NAME = "$_Cr";
+const DECODER_METHOD_NAME = "$_CV";
 const bindingResultCache = new WeakMap();
 
 /**
