@@ -11,7 +11,10 @@
 |网站|host|版本|人机类型|传送|
 |--|:--:|--|:--:|--|
 |官方geetest4 Demo 测试|http://gt4.geetest.com|v1.9.7|全部|[点击直达](http://gt4.geetest.com/)|
+|心理健康网|https://www.cnnmh.cn|v1.9.7|滑块|[点击直达](https://www.cnnmh.cn/#model)|
 |七星影院|https://www.ui07nxj.com|v1.9.8|文字语序点选/图标点选|[点击直达](https://www.ui07nxj.com/login)|
+|Login to ZStack|https://auth.zstack-cloud.com|v1.9.8|滑块|[点击直达](https://auth.zstack-cloud.com/login)|
+|汇联科技 - 统一登录|https://sso.3ypay.com|v1.9.8|滑块|[点击直达](https://sso.3ypay.com/sso/auth)|
 
 ### 解混淆后JS文件
 
