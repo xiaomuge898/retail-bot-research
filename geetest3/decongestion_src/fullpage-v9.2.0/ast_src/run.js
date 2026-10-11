@@ -167,7 +167,7 @@ traverse(ast_parse, {
             return;
         }
 
-        if (!/^\$_[A-Za-z]{4,5}$/.test(callee.name)) return;
+        if (!/^\$_[A-Za-z\_]{4,5}$/.test(callee.name)) return;
 
         const decodedValue = Vwtrj.$_CV(args[0].value);
         if (typeof decodedValue !== "string") {

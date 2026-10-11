@@ -239,12 +239,7 @@ function Vwtrj() {}
                   return this["create"](this["$_CCj"], e, t);
                 },
                 "init": function (e, t, n) {
-                  var $_DIIM = Vwtrj.$_CV,
-                    $_DIHk = ["$_DJBM"].concat($_DIIM),
-                    $_DIJ_ = $_DIHk[1];
-                  $_DIHk.shift();
-                  var $_DJAf = $_DIHk[0];
-                  this["cfg"] = this["cfg"][$_DIJ_(43)](n), this[$_DIJ_(8)] = e, this["$_CEL"] = t, this["reset"]();
+                  this["cfg"] = this["cfg"]["extend"](n), this["$_CDi"] = e, this["$_CEL"] = t, this["reset"]();
                 },
                 "reset": function () {
                   a["reset"]["call"](this), this["$_CFb"]();
@@ -294,16 +289,11 @@ function Vwtrj() {}
                   var n = this["$_CJV"],
                     r = n["blockSize"];
                   (function s(e, t, n) {
-                    var $_EDIj = Vwtrj.$_CV,
-                      $_EDHk = ["$_EEBb"].concat($_EDIj),
-                      $_EDJ_ = $_EDHk[1];
-                    $_EDHk.shift();
-                    var $_EEAA = $_EDHk[0];
                     var r = this["$_DAK"];
                     if (r) {
                       var o = r;
-                      this[$_EDJ_(53)] = undefined;
-                    } else var o = this[$_EDJ_(99)];
+                      this["$_DAK"] = undefined;
+                    } else var o = this["$_DBf"];
                     for (var i = 0; i < n; i++) e[t + i] ^= o[i];
                   })["call"](this, e, t, r), n["encryptBlock"](e, t), this["$_DBf"] = e["slice"](t, t + r);
                 }
@@ -1746,19 +1736,14 @@ function Vwtrj() {}
             }
             var s, a, l, u, p, h, f, d, g, v;
             for (s = function m(e) {
-              var $_JID_ = Vwtrj.$_CV,
-                $_JICt = ["$_JIGN"].concat($_JID_),
-                $_JIEQ = $_JICt[1];
-              $_JICt.shift();
-              var $_JIFT = $_JICt[0];
               var t,
-                n = e[$_JID_(71)],
+                n = e["length"],
                 r = n + 8,
                 o = 16 * (1 + (r - r % 64) / 64),
                 i = Array(o - 1),
                 s = 0,
                 a = 0;
-              while (a < n) s = a % 4 * 8, i[t = (a - a % 4) / 4] = i[t] | e[$_JID_(49)](a) << s, a++;
+              while (a < n) s = a % 4 * 8, i[t = (a - a % 4) / 4] = i[t] | e["charCodeAt"](a) << s, a++;
               return s = a % 4 * 8, i[t = (a - a % 4) / 4] = i[t] | 128 << s, i[o - 2] = n << 3, i[o - 1] = n >>> 29, i;
             }(e = function x(e) {
               e = e["replace"](/\r\n/g, "\n");
@@ -3310,12 +3295,7 @@ function Vwtrj() {}
         return i["prototype"] = x["constructor"] = s, s["constructor"] = i, s[n] = i["displayName"] = "GeneratorFunction", r["mark"] = function (e) {
           return Object["setPrototypeOf"] ? Object["setPrototypeOf"](e, s) : (e["$_BADN"] = s, n in e || (e[n] = "GeneratorFunction")), e["prototype"] = Object["create"](x), e;
         }, function S(e) {
-          var $_BJED_ = Vwtrj.$_CV,
-            $_BJECx = ["$_BJEGB"].concat($_BJED_),
-            $_BJEEW = $_BJECx[1];
-          $_BJECx.shift();
-          var $_BJEFS = $_BJECx[0];
-          [$_BJED_(285), $_BJED_(711), $_BJED_(728)][$_BJED_(611)](function (t) {
+          ["next", "throw", "return"]["forEach"](function (t) {
             e[t] = function (e) {
               return this["$_BFCh"](t, e);
             };
@@ -3736,13 +3716,8 @@ function Vwtrj() {}
           var t = this;
           t["supportWorker"] ? (t["iframeurl"] || (t["iframeurl"] = t["powclient"]["iframe"]["src"]), t["powclient"]["iframe"]["src"] = t["iframeurl"] + "&t=" + new Date()["getTime"]()) : o(e["vip_content"], e["vip_answer"], e["vip_key"], t["beforeStart"], t["progress"], t["done"]);
         }, e["prototype"]["$_JIQ"] = function () {
-          var $_CBCD_ = Vwtrj.$_CV,
-            $_CBCCs = ["$_CBCGc"].concat($_CBCD_),
-            $_CBCEh = $_CBCCs[1];
-          $_CBCCs.shift();
-          var $_CBCFz = $_CBCCs[0];
           var e = this;
-          e["powclient"] && e[$_CBCD_(843)]["iframe"] && (e["powclient"]["stop"](), e["powclient"]["iframe"][$_CBCD_(699)]["removeChild"](e[$_CBCD_(843)]["iframe"]));
+          e["powclient"] && e["powclient"]["iframe"] && (e["powclient"]["stop"](), e["powclient"]["iframe"]["parentNode"]["removeChild"](e["powclient"]["iframe"]));
         }, e["prototype"]["$_BFFr"] = function () {
           this["powclient"] && this["powclient"]["iframe"] && this["powclient"]["stop"]();
         };
@@ -3910,12 +3885,7 @@ function Vwtrj() {}
       "$_BGGo": function () {
         var r = this;
         r["$_BFJI"]["$_JGb"]("move", function (e) {
-          var $_CBJIg = Vwtrj.$_CV,
-            $_CBJHE = ["$_CCABl"].concat($_CBJIg),
-            $_CBJJ_ = $_CBJHE[1];
-          $_CBJHE.shift();
-          var $_CCAAI = $_CBJHE[0];
-          r["$_BHEC"](), r["posX"] = e[$_CBJJ_(963)](), r[$_CBJJ_(912)] = e[$_CBJJ_(948)](), r["$_BHFa"]("move", r[$_CBJJ_(969)], r[$_CBJJ_(912)], e["$_DJL"]["type"]);
+          r["$_BHEC"](), r["posX"] = e["$_BEIx"](), r["posY"] = e["$_BEJr"](), r["$_BHFa"]("move", r["posX"], r["posY"], e["$_DJL"]["type"]);
         })["$_JGb"]("down", function (e) {
           var t = r["$_BGS"]["length"];
           r["$_BGS"][t - 1] && "down" === r["$_BGS"][t - 1][0] || (r["$_BHEC"](), r["posX"] = e["$_BEIx"](), r["posY"] = e["$_BEJr"](), r["$_BHFa"]("down", r["posX"], r["posY"], e["$_DJL"]["type"]), r["$_BGS"][t - 2] && "move" === r["$_BGS"][t - 2][0] && r["$_BGS"][t - 3] && "up" === r["$_BGS"][t - 3][0] && r["$_BHGe"](t - 2));
@@ -4495,13 +4465,8 @@ function Vwtrj() {}
         } catch (o) {}
       },
       "$_JIQ": function () {
-        var $_CEHD_ = Vwtrj.$_CV,
-          $_CEHCt = ["$_CEHGg"].concat($_CEHD_),
-          $_CEHEv = $_CEHCt[1];
-        $_CEHCt.shift();
-        var $_CEHFd = $_CEHCt[0];
         var e = this;
-        e["$_CAJz"] && e["$_CAJz"]["$_JIQ"](), e[$_CEHD_(1038)]["$_JIQ"](), e[$_CEHD_(1070)][$_CEHD_(685)](), e[$_CEHD_(1027)]["$_JIQ"]();
+        e["$_CAJz"] && e["$_CAJz"]["$_JIQ"](), e["$_BJDV"]["$_JIQ"](), e["$_BJJT"]["$_JIQ"](), e["$_BDHn"]["$_JIQ"]();
       },
       "$_FAA": function (e) {
         return this["$_CCBm"] = e, this["$_BAAk"]["$_HIY"](Ie), this;
@@ -4578,23 +4543,18 @@ function Vwtrj() {}
             t["push"](e["toString"]());
             var r = "";
             !function o(e, t) {
-              var $_CFGDn = Vwtrj.$_CV,
-                $_CFGCS = ["$_CFGGc"].concat($_CFGDn),
-                $_CFGE_ = $_CFGCS[1];
-              $_CFGCS.shift();
-              var $_CFGFg = $_CFGCS[0];
               function n(e) {
                 var $_DDHGX = Vwtrj.$_DD()[3][19];
                 for (; $_DDHGX !== Vwtrj.$_DD()[6][16];) {
                   switch ($_DDHGX) {
                     case Vwtrj.$_DD()[15][19]:
                       var t = 5381,
-                        n = e[$_CFGE_(71)],
+                        n = e["length"],
                         r = 0;
                       $_DDHGX = Vwtrj.$_DD()[9][18];
                       break;
                     case Vwtrj.$_DD()[12][18]:
-                      while (n--) t = (t << 5) + t + e[$_CFGE_(49)](r++);
+                      while (n--) t = (t << 5) + t + e["charCodeAt"](r++);
                       $_DDHGX = Vwtrj.$_DD()[12][17];
                       break;
                     case Vwtrj.$_DD()[9][17]:
@@ -4603,7 +4563,7 @@ function Vwtrj() {}
                   }
                 }
               }
-              100 < new Date()[$_CFGE_(209)]() - t["getTime"]() && (e = $_CFGE_(1108)), r = "{" + i["$_CECm"] + $_CFGE_(1194) + n(o[$_CFGE_(47)]() + n(n["toString"]()) + n(e[$_CFGE_(47)]())) + $_CFGE_(1103);
+              100 < new Date()["getTime"]() - t["getTime"]() && (e = "qwe"), r = "{" + i["$_CECm"] + "\"captcha_token\":\"" + n(o["toString"]() + n(n["toString"]()) + n(e["toString"]())) + "\",\"tsfq\":\"xovrayel\"}";
             }(t["shift"](), new Date()), i["$_CEAp"] = p["$_HEJ"](c["encrypt"](r, i["$_CCHP"]()));
           };
         }(), i["$_CEEQ"]("");
@@ -4721,12 +4681,7 @@ function Vwtrj() {}
         return !!this["$_CACk"] && q["$_HJT"](this["$_CABR"])["$_CEGH"]();
       },
       "onReady": function (e) {
-        var $_CGII_ = Vwtrj.$_CV,
-          $_CGIHv = ["$_CGJBO"].concat($_CGII_),
-          $_CGIJl = $_CGIHv[1];
-        $_CGIHv.shift();
-        var $_CGJAY = $_CGIHv[0];
-        return this[$_CGII_(1097)] && q["$_HJT"](this[$_CGII_(1034)])["$_JGb"](Oe, e), this;
+        return this["$_CACk"] && q["$_HJT"](this["$_CABR"])["$_JGb"](Oe, e), this;
       },
       "onSuccess": function (e) {
         return this["$_CACk"] && q["$_HJT"](this["$_CABR"])["$_JGb"](He, e), this;
@@ -4876,11 +4831,6 @@ function Vwtrj() {}
         }
       },
       "$_JGb": function () {
-        var $_CICD_ = Vwtrj.$_CV,
-          $_CICCd = ["$_CICGG"].concat($_CICD_),
-          $_CICEv = $_CICCd[1];
-        $_CICCd.shift();
-        var $_CICFA = $_CICCd[0];
         var t,
           n,
           e,
@@ -4888,13 +4838,13 @@ function Vwtrj() {}
           o = r["$"],
           i = r["$_BAAk"],
           s = r["$_JDi"];
-        r["$_CGHx"] = !1, w ? (new $_DJL([o(".logo"), o($_CICD_(1265))])[$_CICD_(59)](function (e) {
+        r["$_CGHx"] = !1, w ? (new $_DJL([o(".logo"), o(".success_logo")])["$_EBg"](function (e) {
           e["$_JGb"]("click", function () {
             r["$_CGHx"] = !0, o(".goto")["$_BBGn"](), g(function () {
               o(".goto")["$_BBHJ"](1);
             }, 300);
           });
-        }), new $_DJL([o($_CICD_(1210)), o(".goto_ghost")])["$_EBg"](function (e) {
+        }), new $_DJL([o(".goto_cancel"), o(".goto_ghost")])["$_EBg"](function (e) {
           e["$_JGb"]("click", function () {
             r["$_CGHx"] = !1, o(".goto")["$_BBHJ"](0), g(function () {
               o(".goto")["$_BBFR"]();
@@ -4908,7 +4858,7 @@ function Vwtrj() {}
           r["$_CGHx"] = !0, g(function () {
             r["$_CGHx"] = !1;
           }, 10);
-        })), r[$_CICD_(1032)] && (r["$_CAFC"] = (t = function (e) {
+        })), r["$_CAEm"] && (r["$_CAFC"] = (t = function (e) {
           if (i["$_BABV"](Le)) i["$_HIY"](Ne), g(function () {
             i["$_BABV"](Ne) && i["$_HIY"](Re);
           }, 500);else if (i["$_BABV"](je) && w) {
@@ -4922,17 +4872,17 @@ function Vwtrj() {}
           n = g(function () {
             t(e);
           }, 10);
-        })[$_CICD_(1247)] = function () {
+        })["cancel"] = function () {
           v(n), n = null;
-        }, e), r[$_CICD_(934)][$_CICD_(919)]($_CICD_(984), r["$_CAFC"]));
+        }, e), r["$_BHCf"]["$_JGb"]("move", r["$_CAFC"]));
         function a() {
           var $_DDHHF = Vwtrj.$_DD()[9][19];
           for (; $_DDHHF !== Vwtrj.$_DD()[0][18];) {
             switch ($_DDHHF) {
               case Vwtrj.$_DD()[12][19]:
-                r[$_CICD_(1239)] || ("function" != typeof r[$_CICD_(529)][$_CICD_(1193)] || r[$_CICD_(529)][$_CICD_(1193)]()) && (i["$_BABV"]([je, Ne, Re]) ? (i["$_HIY"](Be), g(function () {
+                r["$_CGHx"] || ("function" != typeof r["$_JDi"]["$_CDDn"] || r["$_JDi"]["$_CDDn"]()) && (i["$_BABV"]([je, Ne, Re]) ? (i["$_HIY"](Be), g(function () {
                   i["$_BABV"](Be) && (i["$_HIY"](Me), r["$_BJJT"]());
-                }, 10)) : i["$_BABV"]([Le]) && (i["$_HIY"](Me), r[$_CICD_(1070)]()));
+                }, 10)) : i["$_BABV"]([Le]) && (i["$_HIY"](Me), r["$_BJJT"]()));
                 $_DDHHF = Vwtrj.$_DD()[0][18];
                 break;
             }
@@ -4944,9 +4894,9 @@ function Vwtrj() {}
           s["$_BJIg"] = 0, a();
         })["$_JGb"]("enter", function () {
           i["$_BABV"]([Le, Ne, Re]) && i["$_HIY"](je);
-        })[$_CICD_(919)]($_CICD_(1236), function () {
+        })["$_JGb"]("leave", function () {
           i["$_BABV"]([Le, Ne, Re, je]) && i["$_HIY"](Re);
-        }), o($_CICD_(1256))["$_JGb"]("click", function () {
+        }), o(".reset_tip_content")["$_JGb"]("click", function () {
           r["$_JDi"]["$_CCBm"] && "error_21" === r["$_JDi"]["$_CCBm"]["code"] ? r["$_CGFn"]() : r["$_CEIW"]()["$_FEq"](function () {
             i["$_HIY"](Pe);
           });
