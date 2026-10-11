@@ -9,7 +9,7 @@
 
 ### 测试网址
 |网站|host|版本|人机类型|传送|
-|--|:--:|--|:--:|--|
+|--|:--:|:--:|:--:|--|
 |官方geetest3 Demo 测试|https://demos.geetest.com|fullpage-v9.2.0/slide-v7.9.3/click-v3.1.2|无感/滑块/文字点选|[点击直达](https://demos.geetest.com)|
 |LGNewUi|https://auth-love.kikiw.cn|slide-v7.9.3|滑块|[点击直达](https://auth-love.kikiw.cn/user/index/login.html)|
 |异网带宽流量采集平台|http://101.69.219.249:8083|slide-v7.9.3|滑块|[点击直达](http://101.69.219.249:8083/findpsd)|
@@ -54,7 +54,13 @@
 |--|:--:|--|:--:|--|
 |2026-10-11|w|v7.9.3|无固定|[w-slide-v7.9.3.js](./w/w-slide-v7.9.3.js)|
 
+### 图片还原脚本
 
+![Python Version](https://img.shields.io/badge/Python-3.12-blue)
+
+`针对极验3版本的图片还原，支持两种，一个是老版本的图片还原，一个是当前版本的图片还原，具体可以看脚本注释`
+
+- 点击传输到脚本目录 [`restore_image.py`](./py_script/)，已存放两种不同的图片，可测试还原。
 
 
 ## 📚 `w` 参数生成
