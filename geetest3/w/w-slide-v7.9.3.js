@@ -1670,33 +1670,6 @@ typeof window == "undefined" ? window = global : null;
         ,
         t;
     }()
-    function asds(){
-        // 网页性能计时接口
-        var t = window["performance"]["timing"];
-        return {
-            "a": t["navigationStart"],
-            "b": t["unloadEventStart"],
-            "c": t["unloadEventEnd"],
-            "d": t["redirectStart"],
-            "e": t["redirectEnd"],
-            "f": t["fetchStart"],
-            "g": t["domainLookupStart"],
-            "h": t["domainLookupEnd"],
-            "i": t["connectStart"],
-            "j": t["connectEnd"],
-            "k": t["secureConnectionStart"],
-            "l": t["requestStart"],
-            "m": t["responseStart"],
-            "n": t["responseEnd"],
-            "o": t["domLoading"],
-            "p": t["domInteractive"],
-            "q": t["domContentLoadedEventStart"],
-            "r": t["domContentLoadedEventEnd"],
-            "s": t["domComplete"],
-            "t": t["loadEventStart"],
-            "u": t["loadEventEnd"]
-        };
-    }
     function w_o(trajectory, c, s, gt, challenge){
         // 耗时
         var passtime = trajectory.at(-1)[2]

@@ -3,7 +3,6 @@ const generator = require("@babel/generator").default;
 const traverse = require("@babel/traverse").default;
 const types = require("@babel/types");
 const fs = require("fs");
-const { isStaticDecoderCall } = require("./decoder-call-guard");
 const { removeDecoderScaffolding } = require("./decoder-scaffold-cleaner");
 
 
