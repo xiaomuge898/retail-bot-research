@@ -10,10 +10,10 @@
 ### 测试网址
 |网站|host|版本|人机类型|传送|
 |--|:--:|:--:|:--:|--|
-|官方geetest3 Demo 测试|https://demos.geetest.com|fullpage-v9.2.0/slide-v7.9.3/click-v3.1.2|无感/滑块/文字点选|[点击直达](https://demos.geetest.com)|
+|官方geetest3 Demo 测试|https://demos.geetest.com|fullpage-v9.2.0/slide-v7.9.3/click-v3.1.2|无感/滑块/文字图标点选|[点击直达](https://demos.geetest.com)|
 |LGNewUi|https://auth-love.kikiw.cn|slide-v7.9.3|滑块|[点击直达](https://auth-love.kikiw.cn/user/index/login.html)|
 |异网带宽流量采集平台|http://101.69.219.249:8083|slide-v7.9.3|滑块|[点击直达](http://101.69.219.249:8083/findpsd)|
-|异网带宽流量采集平台|https://www.textin.com|fullpage-v9.2.0/slide-v7.9.3|无感/滑块|[点击直达](https://www.textin.com/user/login?redirect=%2F)|
+|TextIn|https://www.textin.com|fullpage-v9.2.0/slide-v7.9.3/click-v3.1.2|无感/滑块/文字图标点选|[点击直达](https://www.textin.com/user/login?redirect=%2F)|
 
 ### 解混淆后JS文件
 
@@ -27,22 +27,26 @@
 
 `slide*.js 是第三方用来实例滑块人机验证`
 
-`click*.js 是第三方用来实例文字点选人机验证`
+`click*.js 是第三方用来实例文字图标点选人机验证`
 
 
 ![gt3](https://img.shields.io/badge/gt3-v0.4.8-blue)
 ![slide](https://img.shields.io/badge/slide-v7.9.3-blue)
 ![fullpage](https://img.shields.io/badge/fullpage-v9.2.0-blue)
+![click](https://img.shields.io/badge/click-v3.1.2-blue)
 
 |-|name|path|docs|
 |:--|--|--|--|
 |🤖主加载器（源码）|gt-v0.4.8|[点击跳转](./source_src/gt-v0.4.8.js)|风控验证主脚本，未修改。|
 |人机验证（源码）|slide-v7.9.3|[点击跳转](./source_src/slide-v7.9.3/slide.7.9.3.js)|7.9.3 版本的官方源码，未处理前|
 |人机验证（解混淆后）|slide-v7.9.3|[点击跳转](./decongestion_src/slide-v7.9.3/slide.7.9.3.js)|7.9.3 版本源码解混淆后，可直接用于浏览器替换。|
-|🛠️ast解混淆程序|slide-v7.9.3|[点击跳转](./decongestion_src/slide-v7.9.3/ast_src/run.js)|7.9.3 版本的人机验证 `gcaptcha4.js` 专用解混淆脚本 |
+|🛠️ast解混淆程序|slide-v7.9.3|[点击跳转](./decongestion_src/slide-v7.9.3/ast_src/run.js)|7.9.3 版本的人机验证 `slide-v7.9.3` 专用解混淆脚本 |
 |人机验证（源码）|fullpage-v9.2.0|[点击跳转](./source_src/fullpage-v9.2.0/fullpage.9.2.0-guwyxh.js)|9.2.0 版本的官方源码，未处理前|
 |人机验证（解混淆后）|fullpage-v9.2.0|[点击跳转](./decongestion_src/fullpage-v9.2.0/fullpage.9.2.0-guwyxh.js)|9.2.0 版本源码解混淆后，可直接用于浏览器替换。|
-|🛠️ast解混淆程序|fullpage-v9.2.0|[点击跳转](./decongestion_src/fullpage-v9.2.0/ast_src/run.js)|9.2.0 版本的人机验证 `gcaptcha4.js` 专用解混淆脚本 |
+|🛠️ast解混淆程序|fullpage-v9.2.0|[点击跳转](./decongestion_src/fullpage-v9.2.0/ast_src/run.js)|9.2.0 版本的人机验证 `fullpage-v9.2.0` 专用解混淆脚本 |
+|人机验证（源码）|click-v3.1.2|[点击跳转](./source_src/click-v3.1.2/click.3.1.2.js)|3.1.2 版本的官方源码，未处理前|
+|人机验证（解混淆后）|click-v3.1.2|[点击跳转](./decongestion_src/click-v3.1.2/click.3.1.2.js)|3.1.2 版本源码解混淆后，可直接用于浏览器替换。|
+|🛠️ast解混淆程序|click-v3.1.2|[点击跳转](./decongestion_src/click-v3.1.2/ast_src/run.js)|3.1.2 版本的人机验证 `click-v3.1.2` 专用解混淆脚本 |
 
 ### 支持生成的载荷参数
 
@@ -54,6 +58,7 @@
 |--|:--:|--|:--:|--|
 |2026-10-11|w|v7.9.3|无固定|[w-slide-v7.9.3.js](./w/w-slide-v7.9.3.js)|
 |2026-10-12|w*2|v9.2.0|无固定|[w-fullpage-v9.2.0.js](./w/w-fullpage-v9.2.0.js)|
+|2026-10-12|w|v3.1.2|无固定|[w-click-v3.1.2.js](./w/w-click-v3.1.2.js)|
 
 ### 图片还原脚本
 
@@ -181,5 +186,28 @@ console.log("接口二验证 ->  ", w_wind_2(c, s, gt, challenge))
 
 - demo 测试脚本 [`demo-fullpage.9.2.0.py`](./py_script/) 可以自行测试
 
+
+</details>
+
+<details>
+
+<summary>🔧 文字图标 click 版本兼容：v3.1.2</summary>
+
+#### 此版本文字图标验证通过，可使用下方代码生成 `w` 参数
+
+`官方并未做强校验，部分参数可以写死或随机，但下面这三次参数是必须要实打实的填写，gt 和 challenge 可以在接口内找到，而 coordinate_list 坐标可以通过OCR识别，原图使用ocr识别出来的坐标，是可以直接使用，无须二次处理`
+
+```js
+// 要点击的 文字/图标 的坐标，ocr识别出来的坐标可以直接使用
+var coordinate_list = [
+    [142,205],
+    [225,218]
+]
+
+// 下面这两个参数接口会有返回
+var gt = '5172bacee2537149aa63fc966c3796d9'
+var challenge = '87e6c969c9f5212861febbeb06e220c9'
+console.log(w_click(gt, challenge, coordinate_list))
+```
 
 </details>
