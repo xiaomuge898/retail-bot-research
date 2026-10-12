@@ -4,6 +4,13 @@ typeof window == "undefined" ? window = global : null;
     e.w_wind_1=w_wind_1
     e.w_wind_2=w_wind_2
     var aes_key = uuid();
+    // 写死即可
+    var $_ccccc = {
+        "lang": "zh-cn",
+        "ww": true,
+        "cc": 20,
+        "i": "-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1"
+    }
     // 补一个环境，这个是 rsa 所需要的环境
     Object.defineProperty(navigator, "appName", {
         get: () => 'Netscape',
@@ -1401,6 +1408,376 @@ typeof window == "undefined" ? window = global : null;
         ,
         e;
     }()
+    function $_DJL(e) {
+        var $_DDDDr = Vwtrj.$_DD()[6][19];
+        for (; $_DDDDr !== Vwtrj.$_DD()[12][18]; ) {
+            switch ($_DDDDr) {
+            case Vwtrj.$_DD()[6][19]:
+                this["$_BAEW"] = e || [];
+                $_DDDDr = Vwtrj.$_DD()[9][18];
+                break;
+            }
+        }
+    }
+    $_DJL["prototype"] = {
+        "$_HJT": function(e) {
+            return this["$_BAEW"][e];
+        },
+        "$_BAGH": function() {
+            return this["$_BAEW"]["length"];
+        },
+        "$_EAV": function(e, t) {
+            return new $_DJL(J(t) ? this["$_BAEW"]["slice"](e, t) : this["$_BAEW"]["slice"](e));
+        },
+        "$_BAHY": function(e) {
+            return this["$_BAEW"]["push"](e),
+            this;
+        },
+        "$_BAIA": function(e, t) {
+            return this["$_BAEW"]["splice"](e, t || 1);
+        },
+        "$_ECl": function(e) {
+            return this["$_BAEW"]["join"](e);
+        },
+        "$_BAJt": function(e) {
+            return new $_DJL(this["$_BAEW"]["concat"](e));
+        },
+        "$_EBg": function(e) {
+            var t = this["$_BAEW"];
+            if (t["map"])
+                return new $_DJL(t["map"](e));
+            for (var n = [], r = 0, o = t["length"]; r < o; r += 1)
+                n[r] = e(t[r], r, this);
+            return new $_DJL(n);
+        },
+        "$_BBAm": function(e) {
+            var t = this["$_BAEW"];
+            if (t["filter"])
+                return new $_DJL(t["filter"](e));
+            for (var n = [], r = 0, o = t["length"]; r < o; r += 1)
+                e(t[r], r, this) && n["push"](t[r]);
+            return new $_DJL(n);
+        },
+        "$_EHE": function(e) {
+            var t = this["$_BAEW"];
+            if (t["indexOf"])
+                return t["indexOf"](e);
+            for (var n = 0, r = t["length"]; n < r; n += 1)
+                if (t[n] === e)
+                    return n;
+            return -1;
+        },
+        "$_BBBV": function(e) {
+            var t = this["$_BAEW"];
+            if (!t["forEach"])
+                for (var n = arguments[1], r = 0; r < t["length"]; r++)
+                    r in t && e["call"](n, t[r], r, this);
+            return t["forEach"](e);
+        }
+    },
+    $_DJL["$_BACy"] = function(e) {
+        return Array["isArray"] ? Array["isArray"](e) : "[object Array]" === Object["prototype"]["toString"]["call"](e);
+    }
+    function Te() {}
+    Te["prototype"] = {
+        "$_BHA_": 300,
+        "$_BGGo": function() {
+            var r = this;
+            r["$_BFJI"]["$_JGb"]("move", function(e) {
+                r["$_BHEC"](),
+                r["posX"] = e["$_BEIx"](),
+                r["posY"] = e["$_BEJr"](),
+                r["$_BHFa"]("move", r["posX"], r["posY"], e["$_DJL"]["type"]);
+            })["$_JGb"]("down", function(e) {
+                var t = r["$_BGS"]["length"];
+                r["$_BGS"][t - 1] && "down" === r["$_BGS"][t - 1][0] || (r["$_BHEC"](),
+                r["posX"] = e["$_BEIx"](),
+                r["posY"] = e["$_BEJr"](),
+                r["$_BHFa"]("down", r["posX"], r["posY"], e["$_DJL"]["type"]),
+                r["$_BGS"][t - 2] && "move" === r["$_BGS"][t - 2][0] && r["$_BGS"][t - 3] && "up" === r["$_BGS"][t - 3][0] && r["$_BHGe"](t - 2));
+            })["$_JGb"]("up", function(e) {
+                var t = r["$_BGS"]["length"];
+                r["$_BGS"][t - 1] && "up" === r["$_BGS"][t - 1][0] || (r["$_BHEC"](),
+                r["posX"] = e["$_BEIx"](),
+                r["posY"] = e["$_BEJr"](),
+                r["$_BHFa"]("up", r["posX"], r["posY"], e["$_DJL"]["type"]),
+                r["$_BGS"][t - 2] && "move" === r["$_BGS"][t - 2][0] && r["$_BGS"][t - 3] && "down" === r["$_BGS"][t - 3][0] && r["$_BHGe"](t - 2));
+            })["$_JGb"]("focusin", function() {
+                r["$_BHFa"]("focus");
+            }),
+            r["$_BGAm"]["$_JGb"]("scroll", function() {
+                var e = "pageXOffset" in window
+                    , t = e ? window["pageXOffset"] : N["body"]["scrollLeft"]
+                    , n = e ? window["pageYOffset"] : N["body"]["scrollTop"];
+                r["posX"] = t - r["scrollLeft"] + r["posX"],
+                r["posY"] = n - r["scrollTop"] + r["posY"],
+                r["$_BHFa"]("scroll", t - r["scrollLeft"] + r["posX"], n - r["scrollTop"] + r["posY"]),
+                r["$_BHEC"]();
+            })["$_JGb"]("focus", function() {
+                r["$_BHFa"]("focus");
+            })["$_JGb"]("blur", function() {
+                r["$_BHFa"]("blur");
+            })["$_JGb"]("unload", function() {
+                r["$_BHFa"]("unload");
+            });
+        },
+        "$_BHEC": function() {
+            var e = "pageXOffset" in window
+                , t = e ? window["pageXOffset"] : N["body"]["scrollLeft"]
+                , n = e ? window["pageYOffset"] : N["body"]["scrollTop"];
+            return {
+                "x": this["scrollLeft"] = t,
+                "y": this["scrollTop"] = n
+            };
+        },
+        "$_BHFa": function(e, t, n, r) {
+            var o = $_Gx()
+                , i = this
+                , s = i["$_BGDG"]
+                , a = i["$_BGEr"]
+                , _ = i["$_BGFA"]
+                , c = i["$_BGS"];
+            if (-1 < new $_DJL(["move", "down", "up", "scroll"])["$_EHE"](e)) {
+                if ("move" === e) {
+                    if (t === s && n === a || _ === o)
+                        return;
+                    i["$_BGDG"] = t,
+                    i["$_BGEr"] = n,
+                    i["$_BGFA"] = o;
+                }
+                c["push"]([e, i["$_BHHr"](t), i["$_BHHr"](n), o, r]);
+            } else
+                c["push"]([e, o]);
+            return i;
+        },
+        "$_BHGe": function(e) {
+            this["$_BGS"]["splice"](e, 1);
+        },
+        "$_JIQ": function() {
+            this["$_BGAm"]["$_BDBu"](),
+            this["$_BFJI"]["$_BDBu"]();
+        },
+        "$_BHIh": function(e) {
+            var t = 0
+                , n = 0
+                , r = []
+                , o = this
+                , i = o["lastTime"];
+            if (e["length"] <= 0)
+                return [];
+            for (var s = null, a = null, _ = o["$_BHJq"](e), c = _["length"], l = c < this["$_BHA_"] ? 0 : c - this["$_BHA_"]; l < c; l += 1) {
+                var u = _[l]
+                    , p = u[0];
+                -1 < new $_DJL(["down", "move", "up", "scroll"])["$_EHE"](p) ? (s || (s = u),
+                a = u,
+                r["push"]([p, [u[1] - t, u[2] - n], o["$_BHHr"](i ? u[3] - i : i)]),
+                t = u[1],
+                n = u[2],
+                i = u[3]) : -1 < new $_DJL(["blur", "focus", "unload"])["$_EHE"](p) && (r["push"]([p, o["$_BHHr"](i ? u[1] - i : i)]),
+                i = u[1]);
+            }
+            return o["$_BGBk"] = s,
+            o["$_BGCU"] = a,
+            r;
+        },
+        "$_BHJq": function(e) {
+            var t = ""
+                , n = 0;
+            (e || [])["length"];
+            while (!t && e[n])
+                t = e[n] && e[n][4],
+                n++;
+            if (!t)
+                return e;
+            for (var r = "", o = ["mouse", "touch", "pointer", "MSPointer"], i = 0, s = o["length"]; i < s; i++)
+                0 === t["indexOf"](o[i]) && (r = o[i]);
+            for (var a = e["slice"](), _ = a["length"] - 1; 0 <= _; _--) {
+                var c = a[_]
+                    , l = c[0];
+                if (-1 < new $_DJL(["move", "down", "up"])["$_EHE"](l))
+                    0 !== (c[4] || "")["indexOf"](r) && a["splice"](_, 1);
+            }
+            return a;
+        },
+        "$_HDl": function(e) {
+            var p = {
+                "move": 0,
+                "down": 1,
+                "up": 2,
+                "scroll": 3,
+                "focus": 4,
+                "blur": 5,
+                "unload": 6,
+                "unknown": 7
+            };
+            function h(e, t) {
+                var $_DDGHs = Vwtrj.$_DD()[3][19];
+                for (; $_DDGHs !== Vwtrj.$_DD()[9][18]; ) {
+                    switch ($_DDGHs) {
+                    case Vwtrj.$_DD()[12][19]:
+                        for (var n = e["toString"](2), r = "", o = n["length"] + 1; o <= t; o += 1)
+                            r += "0";
+                        return n = r + n;
+                        break;
+                    }
+                }
+            }
+            function f(e) {
+                var $_DDGIH = Vwtrj.$_DD()[15][19];
+                for (; $_DDGIH !== Vwtrj.$_DD()[6][15]; ) {
+                    switch ($_DDGIH) {
+                    case Vwtrj.$_DD()[9][19]:
+                        var t = []
+                            , n = e["length"]
+                            , r = 0;
+                        $_DDGIH = Vwtrj.$_DD()[15][18];
+                        break;
+                    case Vwtrj.$_DD()[0][18]:
+                        while (r < n) {
+                            var o = e[r]
+                                , i = 0;
+                            while (1) {
+                                if (16 <= i)
+                                    break;
+                                var s = r + i + 1;
+                                if (n <= s)
+                                    break;
+                                if (e[s] !== o)
+                                    break;
+                                i += 1;
+                            }
+                            r = r + 1 + i;
+                            var a = p[o];
+                            0 != i ? (t["push"](8 | a),
+                            t["push"](i - 1)) : t["push"](a);
+                        }
+                        $_DDGIH = Vwtrj.$_DD()[9][17];
+                        break;
+                    case Vwtrj.$_DD()[9][17]:
+                        for (var _ = h(32768 | n, 16), c = "", l = 0, u = t["length"]; l < u; l += 1)
+                            c += h(t[l], 4);
+                        $_DDGIH = Vwtrj.$_DD()[3][16];
+                        break;
+                    case Vwtrj.$_DD()[9][16]:
+                        return _ + c;
+                        break;
+                    }
+                }
+            }
+            function c(e, t) {
+                var $_DDGJd = Vwtrj.$_DD()[9][19];
+                for (; $_DDGJd !== Vwtrj.$_DD()[0][17]; ) {
+                    switch ($_DDGJd) {
+                    case Vwtrj.$_DD()[15][19]:
+                        for (var n = [], r = 0, o = e["length"]; r < o; r += 1)
+                            n["push"](t(e[r]));
+                        $_DDGJd = Vwtrj.$_DD()[9][18];
+                        break;
+                    case Vwtrj.$_DD()[9][18]:
+                        return n;
+                        break;
+                    }
+                }
+            }
+            function d(e, t) {
+                var $_DDHAC = Vwtrj.$_DD()[9][19];
+                for (; $_DDHAC !== Vwtrj.$_DD()[15][16]; ) {
+                    switch ($_DDHAC) {
+                    case Vwtrj.$_DD()[9][19]:
+                        e = function _(e) {
+                            var t = 32767
+                                , n = (e = c(e, function(e) {
+                                return t < e ? t : e < -t ? -t : e;
+                            }))["length"]
+                                , r = 0
+                                , o = [];
+                            while (r < n) {
+                                var i = 1
+                                    , s = e[r]
+                                    , a = Math["abs"](s);
+                                while (1) {
+                                    if (n <= r + i)
+                                        break;
+                                    if (e[r + i] !== s)
+                                        break;
+                                    if (127 <= a || 127 <= i)
+                                        break;
+                                    i += 1;
+                                }
+                                1 < i ? o["push"]((s < 0 ? 49152 : 32768) | i << 7 | a) : o["push"](s),
+                                r += i;
+                            }
+                            return o;
+                        }(e);
+                        var n, r = [], o = [];
+                        $_DDHAC = Vwtrj.$_DD()[0][18];
+                        break;
+                    case Vwtrj.$_DD()[0][18]:
+                        c(e, function(e) {
+                            var t = Math["ceil"](function n(e, t) {
+                                return 0 === e ? 0 : Math["log"](e) / Math["log"](t);
+                            }(Math["abs"](e) + 1, 16));
+                            0 === t && (t = 1),
+                            r["push"](h(t - 1, 2)),
+                            o["push"](h(Math["abs"](e), 4 * t));
+                        });
+                        var i = r["join"]("")
+                            , s = o["join"]("");
+                        $_DDHAC = Vwtrj.$_DD()[9][17];
+                        break;
+                    case Vwtrj.$_DD()[6][17]:
+                        return n = t ? c(function a(e, t) {
+                            var n = [];
+                            return c(e, function(e) {
+                                t(e) && n["push"](e);
+                            }),
+                            n;
+                        }(e, function(e) {
+                            return 0 != e && e >> 15 != 1;
+                        }), function(e) {
+                            return e < 0 ? "1" : "0";
+                        })["join"]("") : "",
+                        h(32768 | e["length"], 16) + i + s + n;
+                        break;
+                    }
+                }
+            }
+            return function(e) {
+                for (var t = [], n = [], r = [], o = [], i = 0, s = e["length"]; i < s; i += 1) {
+                    var a = e[i]
+                        , _ = a["length"];
+                    t["push"](a[0]),
+                    n["push"](2 === _ ? a[1] : a[2]),
+                    3 === _ && (r["push"](a[1][0]),
+                    o["push"](a[1][1]));
+                }
+                var c = f(t) + d(n, !1) + d(r, !0) + d(o, !0)
+                    , l = c["length"];
+                return l % 6 != 0 && (c += h(0, 6 - l % 6)),
+                function u(e) {
+                    for (var t = "", n = e["length"] / 6, r = 0; r < n; r += 1)
+                        t += "()*,-./0123456789:?@ABCDEFGHIJKLMNOPQRSTUVWXYZ_abcdefghijklmnopqrstuvwxyz~"["charAt"](window["parseInt"](e["slice"](6 * r, 6 * (r + 1)), 2));
+                    return t;
+                }(c);
+            }(e);
+        },
+        "$_BHHr": function(e) {
+            var t = 32767;
+            return "number" != typeof e ? e : (t < e ? e = t : e < -t && (e = -t),
+            Math["round"](e));
+        },
+        "$_BIAr": function() {
+            return this["$_HDl"](this["$_BHIh"](this["$_BGS"]))["length"];
+        },
+        "$_BIBC": function() {
+            var e = this["$_BGS"];
+            return this["$_BGS"] = [],
+            this["$_HDl"](this["$_BHIh"](e));
+        },
+        "$_BICU": function() {
+            return this["$_HDl"](this["$_BGS"]);
+        }
+    }
     function $_CCGr(){
         var t = new X()["encrypt"](aes_key);
         while (!t || 256 !== t["length"]){
@@ -1409,25 +1786,308 @@ typeof window == "undefined" ? window = global : null;
         }
         return t;
     }
+    function H(e) {
+        var $_DDABJ = Vwtrj.$_DD()[6][19];
+        for (; $_DDABJ !== Vwtrj.$_DD()[9][18]; ) {
+            switch ($_DDABJ) {
+            case Vwtrj.$_DD()[12][19]:
+                function _(e, t) {
+                    var $_DDACf = Vwtrj.$_DD()[12][19];
+                    for (; $_DDACf !== Vwtrj.$_DD()[6][18]; ) {
+                        switch ($_DDACf) {
+                        case Vwtrj.$_DD()[12][19]:
+                            return e << t | e >>> 32 - t;
+                            break;
+                        }
+                    }
+                }
+                function c(e, t) {
+                    var $_DDADB = Vwtrj.$_DD()[9][19];
+                    for (; $_DDADB !== Vwtrj.$_DD()[6][18]; ) {
+                        switch ($_DDADB) {
+                        case Vwtrj.$_DD()[0][19]:
+                            var n, r, o, i, s;
+                            return o = 2147483648 & e,
+                            i = 2147483648 & t,
+                            s = (1073741823 & e) + (1073741823 & t),
+                            (n = 1073741824 & e) & (r = 1073741824 & t) ? 2147483648 ^ s ^ o ^ i : n | r ? 1073741824 & s ? 3221225472 ^ s ^ o ^ i : 1073741824 ^ s ^ o ^ i : s ^ o ^ i;
+                            break;
+                        }
+                    }
+                }
+                function t(e, t, n, r, o, i, s) {
+                    var $_DDAEN = Vwtrj.$_DD()[15][19];
+                    for (; $_DDAEN !== Vwtrj.$_DD()[6][18]; ) {
+                        switch ($_DDAEN) {
+                        case Vwtrj.$_DD()[12][19]:
+                            return c(_(e = c(e, c(c(function a(e, t, n) {
+                                return e & t | ~e & n;
+                            }(t, n, r), o), s)), i), t);
+                            break;
+                        }
+                    }
+                }
+                function n(e, t, n, r, o, i, s) {
+                    var $_DDAFP = Vwtrj.$_DD()[12][19];
+                    for (; $_DDAFP !== Vwtrj.$_DD()[12][18]; ) {
+                        switch ($_DDAFP) {
+                        case Vwtrj.$_DD()[9][19]:
+                            return c(_(e = c(e, c(c(function a(e, t, n) {
+                                return e & n | t & ~n;
+                            }(t, n, r), o), s)), i), t);
+                            break;
+                        }
+                    }
+                }
+                function r(e, t, n, r, o, i, s) {
+                    var $_DDAGr = Vwtrj.$_DD()[9][19];
+                    for (; $_DDAGr !== Vwtrj.$_DD()[12][18]; ) {
+                        switch ($_DDAGr) {
+                        case Vwtrj.$_DD()[0][19]:
+                            return c(_(e = c(e, c(c(function a(e, t, n) {
+                                return e ^ t ^ n;
+                            }(t, n, r), o), s)), i), t);
+                            break;
+                        }
+                    }
+                }
+                function o(e, t, n, r, o, i, s) {
+                    var $_DDAHx = Vwtrj.$_DD()[9][19];
+                    for (; $_DDAHx !== Vwtrj.$_DD()[9][18]; ) {
+                        switch ($_DDAHx) {
+                        case Vwtrj.$_DD()[15][19]:
+                            return c(_(e = c(e, c(c(function a(e, t, n) {
+                                return t ^ (e | ~n);
+                            }(t, n, r), o), s)), i), t);
+                            break;
+                        }
+                    }
+                }
+                function i(e) {
+                    var $_DDAIG = Vwtrj.$_DD()[0][19];
+                    for (; $_DDAIG !== Vwtrj.$_DD()[3][16]; ) {
+                        switch ($_DDAIG) {
+                        case Vwtrj.$_DD()[9][19]:
+                            var t, n = "", r = "";
+                            $_DDAIG = Vwtrj.$_DD()[9][18];
+                            break;
+                        case Vwtrj.$_DD()[9][18]:
+                            for (t = 0; t <= 3; t++)
+                                n += (r = "0" + (e >>> 8 * t & 255)["toString"](16))["substr"](r["length"] - 2, 2);
+                            $_DDAIG = Vwtrj.$_DD()[0][17];
+                            break;
+                        case Vwtrj.$_DD()[15][17]:
+                            return n;
+                            break;
+                        }
+                    }
+                }
+                var s, a, l, u, p, h, f, d, g, v;
+                for (s = function m(e) {
+                    var t, n = e["length"], r = n + 8, o = 16 * (1 + (r - r % 64) / 64), i = Array(o - 1), s = 0, a = 0;
+                    while (a < n)
+                        s = a % 4 * 8,
+                        i[t = (a - a % 4) / 4] = i[t] | e["charCodeAt"](a) << s,
+                        a++;
+                    return s = a % 4 * 8,
+                    i[t = (a - a % 4) / 4] = i[t] | 128 << s,
+                    i[o - 2] = n << 3,
+                    i[o - 1] = n >>> 29,
+                    i;
+                }(e = function x(e) {
+                    e = e["replace"](/\r\n/g, "\n");
+                    for (var t = "", n = 0; n < e["length"]; n++) {
+                        var r = e["charCodeAt"](n);
+                        r < 128 ? t += String["fromCharCode"](r) : (127 < r && r < 2048 ? t += String["fromCharCode"](r >> 6 | 192) : (t += String["fromCharCode"](r >> 12 | 224),
+                        t += String["fromCharCode"](r >> 6 & 63 | 128)),
+                        t += String["fromCharCode"](63 & r | 128));
+                    }
+                    return t;
+                }(e)),
+                f = 1732584193,
+                d = 4023233417,
+                g = 2562383102,
+                v = 271733878,
+                a = 0; a < s["length"]; a += 16)
+                    d = o(d = o(d = o(d = o(d = r(d = r(d = r(d = r(d = n(d = n(d = n(d = n(d = t(d = t(d = t(d = t(u = d, g = t(p = g, v = t(h = v, f = t(l = f, d, g, v, s[a + 0], 7, 3614090360), d, g, s[a + 1], 12, 3905402710), f, d, s[a + 2], 17, 606105819), v, f, s[a + 3], 22, 3250441966), g = t(g, v = t(v, f = t(f, d, g, v, s[a + 4], 7, 4118548399), d, g, s[a + 5], 12, 1200080426), f, d, s[a + 6], 17, 2821735955), v, f, s[a + 7], 22, 4249261313), g = t(g, v = t(v, f = t(f, d, g, v, s[a + 8], 7, 1770035416), d, g, s[a + 9], 12, 2336552879), f, d, s[a + 10], 17, 4294925233), v, f, s[a + 11], 22, 2304563134), g = t(g, v = t(v, f = t(f, d, g, v, s[a + 12], 7, 1804603682), d, g, s[a + 13], 12, 4254626195), f, d, s[a + 14], 17, 2792965006), v, f, s[a + 15], 22, 1236535329), g = n(g, v = n(v, f = n(f, d, g, v, s[a + 1], 5, 4129170786), d, g, s[a + 6], 9, 3225465664), f, d, s[a + 11], 14, 643717713), v, f, s[a + 0], 20, 3921069994), g = n(g, v = n(v, f = n(f, d, g, v, s[a + 5], 5, 3593408605), d, g, s[a + 10], 9, 38016083), f, d, s[a + 15], 14, 3634488961), v, f, s[a + 4], 20, 3889429448), g = n(g, v = n(v, f = n(f, d, g, v, s[a + 9], 5, 568446438), d, g, s[a + 14], 9, 3275163606), f, d, s[a + 3], 14, 4107603335), v, f, s[a + 8], 20, 1163531501), g = n(g, v = n(v, f = n(f, d, g, v, s[a + 13], 5, 2850285829), d, g, s[a + 2], 9, 4243563512), f, d, s[a + 7], 14, 1735328473), v, f, s[a + 12], 20, 2368359562), g = r(g, v = r(v, f = r(f, d, g, v, s[a + 5], 4, 4294588738), d, g, s[a + 8], 11, 2272392833), f, d, s[a + 11], 16, 1839030562), v, f, s[a + 14], 23, 4259657740), g = r(g, v = r(v, f = r(f, d, g, v, s[a + 1], 4, 2763975236), d, g, s[a + 4], 11, 1272893353), f, d, s[a + 7], 16, 4139469664), v, f, s[a + 10], 23, 3200236656), g = r(g, v = r(v, f = r(f, d, g, v, s[a + 13], 4, 681279174), d, g, s[a + 0], 11, 3936430074), f, d, s[a + 3], 16, 3572445317), v, f, s[a + 6], 23, 76029189), g = r(g, v = r(v, f = r(f, d, g, v, s[a + 9], 4, 3654602809), d, g, s[a + 12], 11, 3873151461), f, d, s[a + 15], 16, 530742520), v, f, s[a + 2], 23, 3299628645), g = o(g, v = o(v, f = o(f, d, g, v, s[a + 0], 6, 4096336452), d, g, s[a + 7], 10, 1126891415), f, d, s[a + 14], 15, 2878612391), v, f, s[a + 5], 21, 4237533241), g = o(g, v = o(v, f = o(f, d, g, v, s[a + 12], 6, 1700485571), d, g, s[a + 3], 10, 2399980690), f, d, s[a + 10], 15, 4293915773), v, f, s[a + 1], 21, 2240044497), g = o(g, v = o(v, f = o(f, d, g, v, s[a + 8], 6, 1873313359), d, g, s[a + 15], 10, 4264355552), f, d, s[a + 6], 15, 2734768916), v, f, s[a + 13], 21, 1309151649), g = o(g, v = o(v, f = o(f, d, g, v, s[a + 4], 6, 4149444226), d, g, s[a + 11], 10, 3174756917), f, d, s[a + 2], 15, 718787259), v, f, s[a + 9], 21, 3951481745),
+                    f = c(f, l),
+                    d = c(d, u),
+                    g = c(g, p),
+                    v = c(v, h);
+                return (i(f) + i(d) + i(g) + i(v))["toLowerCase"]();
+                break;
+            }
+        }
+    }
+    function tt(e, c, s){
+        return (function(e, t, n) {
+            if (!t || !n)
+                return e;
+            var r, o = 0, i = e, s = t[0], a = t[2], _ = t[4];
+            while (r = n["substr"](o, 2)) {
+                o += 2;
+                var c = parseInt(r, 16)
+                    , l = String["fromCharCode"](c)
+                    , u = (s * c * c + a * c + _) % e["length"];
+                i = i["substr"](0, u) + l + i["substr"](u);
+            }
+            return i;
+        }(e, c, s))
+    }
+    function randomANGLE() {
+        const randomItem = arr => arr[Math.floor(Math.random() * arr.length)];
 
+        const vendors = [
+            "Microsoft",
+            "Google Inc.",
+            "NVIDIA Corporation",
+            "Intel",
+            "AMD"
+        ];
+
+        const renderers = [
+            "Microsoft Basic Render Driver",
+            "ANGLE",
+            "NVIDIA GeForce RTX 3060",
+            "Intel(R) UHD Graphics",
+            "AMD Radeon Graphics"
+        ];
+
+        const deviceIds = [
+            "0x0000008C",
+            "0x00000001",
+            "0x0000A001",
+            "0x0000A002",
+            "0x0000A003"
+        ];
+
+        const apis = [
+            "Direct3D11",
+            "Direct3D9",
+            "OpenGL",
+            "Vulkan"
+        ];
+
+        const shaderVersions = [
+            ["vs_5_0", "ps_5_0"],
+            ["vs_4_0", "ps_4_0"],
+            ["vs_4_1", "ps_4_1"]
+        ];
+
+        const vendor = randomItem(vendors);
+        const renderer = randomItem(renderers);
+        const deviceId = randomItem(deviceIds);
+        const api = randomItem(apis);
+        const [vs, ps] = randomItem(shaderVersions);
+
+        return `ANGLE (${vendor}, ${renderer} (${deviceId}) ${api} ${vs} ${ps}, ${api})`;
+    }
+    function n_n(e) {
+        var t = 5381
+        , n = e["length"]
+        , r = 0;
+        while (n--)
+            t = (t << 5) + t + e["charCodeAt"](r++);
+        return t &= ~(1 << 31);
+    }
+    
     function w_wind_1(){
         // 无感验证，第一个接口的 w 参数
         var r = $_CCGr()
-        // 写死即可
-        var e = {
-            "lang": "zh-cn",
-            "ww": true,
-            "cc": 20,
-            "i": "-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1!!-1"
-        }
-        var o = $_BFr()["encrypt1"](de["stringify"](e), aes_key)
+        var o = $_BFr()["encrypt1"](de["stringify"]($_ccccc), aes_key)
         var i = p["$_HEJ"](o)
         return i + r
 
     }
-    function w_wind_2(r){
+    function w_wind_2(c, s, gt, challenge){
         // 无感验证，第二个接口的 w 参数
-        return p["$_HEJ"]($_BFr()["encrypt"](r, aes_key))
+        var trajectory = [["move",202,423,1791777680527,"pointermove"],["move",198,421,1791777680529,"pointermove"],["move",196,420,1791777680531,"pointermove"],["move",195,419,1791777680532,"pointermove"],["move",194,419,1791777680533,"pointermove"],["move",191,417,1791777680535,"pointermove"],["move",190,417,1791777680536,"pointermove"],["move",190,417,1791777680537,"pointermove"],["move",189,415,1791777680539,"pointermove"],["move",187,413,1791777680540,"pointermove"],["move",186,413,1791777680541,"pointermove"],["move",184,413,1791777680543,"pointermove"],["move",184,412,1791777680544,"pointermove"],["move",182,411,1791777680545,"pointermove"],["move",180,409,1791777680548,"pointermove"],["move",178,407,1791777680549,"pointermove"],["move",178,406,1791777680550,"pointermove"],["move",176,405,1791777680552,"pointermove"],["move",173,403,1791777680554,"pointermove"],["move",173,403,1791777680555,"pointermove"],["move",172,403,1791777680556,"pointermove"],["move",171,401,1791777680557,"pointermove"],["move",170,401,1791777680559,"pointermove"],["move",169,399,1791777680560,"pointermove"],["move",167,398,1791777680561,"pointermove"],["move",166,397,1791777680562,"pointermove"],["move",165,396,1791777680564,"pointermove"],["move",165,395,1791777680565,"pointermove"],["move",164,395,1791777680566,"pointermove"],["move",162,393,1791777680569,"pointermove"],["move",160,391,1791777680571,"pointermove"],["move",158,389,1791777680573,"pointermove"],["move",158,389,1791777680574,"pointermove"],["move",156,387,1791777680577,"pointermove"],["move",156,386,1791777680578,"pointermove"],["move",155,386,1791777680579,"mousemove"],["move",154,385,1791777680580,"pointermove"],["move",154,385,1791777680581,"pointermove"],["move",153,383,1791777680583,"pointermove"],["move",152,382,1791777680585,"pointermove"],["move",152,381,1791777680586,"pointermove"],["move",150,381,1791777680588,"pointermove"],["move",148,379,1791777680591,"pointermove"],["move",148,378,1791777680592,"pointermove"],["move",148,377,1791777680593,"pointermove"],["move",147,377,1791777680594,"pointermove"],["move",146,377,1791777680595,"pointermove"],["move",146,376,1791777680597,"pointermove"],["move",146,375,1791777680598,"pointermove"],["move",144,375,1791777680600,"pointermove"],["move",142,373,1791777680603,"pointermove"],["move",142,373,1791777680604,"pointermove"],["move",141,372,1791777680607,"pointermove"],["move",140,371,1791777680608,"pointermove"],["move",138,370,1791777680612,"pointermove"],["move",136,369,1791777680615,"pointermove"],["move",136,369,1791777680616,"pointermove"],["move",134,368,1791777680619,"pointermove"],["move",134,368,1791777680620,"mousemove"],["move",133,367,1791777680623,"pointermove"],["move",133,367,1791777680624,"pointermove"],["move",132,367,1791777680625,"pointermove"],["move",132,367,1791777680626,"pointermove"],["move",130,366,1791777680630,"pointermove"],["move",130,366,1791777680631,"pointermove"],["move",129,365,1791777680634,"pointermove"],["move",128,365,1791777680638,"pointermove"],["move",128,365,1791777680639,"pointermove"],["move",126,364,1791777680644,"pointermove"],["move",126,363,1791777680645,"pointermove"],["move",126,363,1791777680648,"pointermove"],["move",124,363,1791777680654,"pointermove"],["move",124,361,1791777680660,"pointermove"],["move",122,361,1791777680666,"pointermove"],["move",122,360,1791777680672,"pointermove"],["move",121,359,1791777680673,"pointermove"],["move",120,359,1791777680677,"pointermove"],["move",120,358,1791777680678,"mousemove"],["move",120,358,1791777680680,"pointermove"],["move",118,357,1791777680682,"pointermove"],["move",118,357,1791777680684,"pointermove"],["move",118,355,1791777680688,"pointermove"],["move",117,355,1791777680691,"pointermove"],["move",116,355,1791777680696,"pointermove"],["move",116,355,1791777680697,"pointermove"],["move",115,353,1791777680700,"pointermove"],["move",115,353,1791777680705,"pointermove"],["move",114,352,1791777680707,"pointermove"],["move",114,352,1791777680708,"mousemove"],["move",114,351,1791777680711,"pointermove"],["move",114,351,1791777680718,"pointermove"],["move",114,351,1791777680725,"pointermove"],["move",113,349,1791777680737,"pointermove"],["move",112,349,1791777680744,"pointermove"],["move",112,349,1791777680745,"pointermove"],["move",112,348,1791777680746,"mousemove"],["move",112,349,1791777680760,"pointermove"],["focus",1791777680815],["focus",1791777680816],["down",111,348,1791777680817,"pointerdown"],["move",111,347,1791777680819,"pointermove"],["up",111,347,1791777680930,"pointerup"],["move",111,347,1791777680933,"mousemove"],["move",111,348,1791777681247,"pointermove"],["move",114,349,1791777681375,"pointermove"],["move",114,350,1791777681376,"pointermove"],["move",115,350,1791777681377,"pointermove"],["move",116,350,1791777681383,"pointermove"],["move",118,350,1791777681388,"pointermove"],["move",118,351,1791777681392,"pointermove"],["move",119,351,1791777681394,"pointermove"],["move",120,351,1791777681396,"pointermove"],["move",121,352,1791777681397,"pointermove"],["move",122,353,1791777681402,"pointermove"],["move",123,353,1791777681403,"pointermove"],["move",124,353,1791777681405,"pointermove"],["move",124,353,1791777681407,"pointermove"],["move",125,354,1791777681409,"pointermove"],["move",126,354,1791777681413,"pointermove"],["move",127,354,1791777681414,"pointermove"],["move",128,354,1791777681417,"pointermove"],["move",129,355,1791777681419,"pointermove"],["move",130,355,1791777681420,"pointermove"],["move",130,356,1791777681421,"pointermove"],["move",131,356,1791777681423,"pointermove"],["move",132,356,1791777681426,"pointermove"],["move",133,356,1791777681427,"pointermove"],["move",134,356,1791777681429,"pointermove"],["move",138,357,1791777681440,"pointermove"],["move",139,357,1791777681441,"pointermove"],["move",139,357,1791777681442,"mousemove"],["move",140,358,1791777681445,"pointermove"],["move",141,358,1791777681447,"pointermove"],["move",142,358,1791777681452,"pointermove"],["move",143,358,1791777681453,"pointermove"],["move",144,358,1791777681455,"pointermove"],["move",144,358,1791777681456,"mousemove"],["move",145,358,1791777681459,"pointermove"],["move",146,358,1791777681463,"pointermove"],["move",147,358,1791777681464,"pointermove"],["move",148,359,1791777681468,"pointermove"],["move",149,359,1791777681470,"pointermove"],["move",150,359,1791777681473,"pointermove"],["move",150,359,1791777681477,"pointermove"],["move",151,359,1791777681478,"pointermove"],["move",152,360,1791777681482,"pointermove"],["move",153,360,1791777681485,"pointermove"],["move",154,360,1791777681492,"pointermove"],["move",155,360,1791777681493,"mousemove"],["move",156,361,1791777681496,"pointermove"],["move",157,361,1791777681499,"pointermove"],["move",158,362,1791777681503,"pointermove"],["move",159,362,1791777681506,"pointermove"],["move",160,362,1791777681508,"pointermove"],["move",161,362,1791777681509,"pointermove"],["move",162,363,1791777681513,"pointermove"],["move",163,363,1791777681514,"pointermove"],["move",164,363,1791777681516,"pointermove"],["move",165,363,1791777681517,"pointermove"],["move",166,363,1791777681520,"pointermove"],["move",167,363,1791777681521,"pointermove"],["move",168,364,1791777681522,"pointermove"],["move",168,364,1791777681523,"pointermove"],["move",170,364,1791777681525,"pointermove"],["move",170,364,1791777681526,"pointermove"],["move",171,364,1791777681527,"pointermove"],["move",172,365,1791777681529,"pointermove"],["move",173,365,1791777681530,"pointermove"],["move",174,365,1791777681532,"pointermove"],["move",175,365,1791777681533,"pointermove"],["move",176,365,1791777681534,"pointermove"],["move",176,366,1791777681535,"pointermove"],["move",178,366,1791777681536,"pointermove"],["move",178,366,1791777681537,"pointermove"],["move",179,366,1791777681538,"pointermove"],["move",180,366,1791777681539,"pointermove"],["move",181,366,1791777681540,"pointermove"],["move",182,367,1791777681542,"pointermove"],["move",184,367,1791777681543,"pointermove"],["move",184,367,1791777681544,"pointermove"],["move",185,367,1791777681545,"pointermove"],["move",186,367,1791777681546,"pointermove"],["move",188,367,1791777681548,"pointermove"],["move",189,367,1791777681549,"pointermove"],["move",191,367,1791777681550,"pointermove"],["move",192,367,1791777681552,"pointermove"],["move",194,367,1791777681553,"pointermove"],["move",195,367,1791777681555,"pointermove"],["move",196,367,1791777681557,"pointermove"],["move",198,367,1791777681558,"pointermove"],["move",198,367,1791777681559,"pointermove"],["move",200,367,1791777681560,"pointermove"],["move",202,367,1791777681562,"pointermove"],["blur",1791777682805],["move",438,450,1791777683145,"pointermove"],["move",436,450,1791777683147,"pointermove"],["move",434,450,1791777683149,"pointermove"],["move",434,450,1791777683150,"pointermove"],["move",432,450,1791777683151,"pointermove"],["move",429,449,1791777683153,"pointermove"],["move",428,449,1791777683154,"pointermove"],["move",425,449,1791777683155,"pointermove"],["move",424,449,1791777683156,"pointermove"],["move",420,448,1791777683157,"pointermove"],["move",420,448,1791777683158,"mousemove"],["move",419,447,1791777683160,"pointermove"],["move",414,447,1791777683161,"pointermove"],["move",408,445,1791777683162,"pointermove"],["move",406,445,1791777683163,"pointermove"],["move",406,445,1791777683164,"pointermove"],["move",402,445,1791777683165,"pointermove"],["move",395,444,1791777683167,"pointermove"],["move",392,443,1791777683168,"pointermove"],["move",392,443,1791777683169,"pointermove"],["move",388,443,1791777683170,"pointermove"],["move",381,442,1791777683172,"pointermove"],["move",379,441,1791777683173,"pointermove"],["move",374,440,1791777683174,"pointermove"],["move",370,439,1791777683175,"pointermove"],["move",370,439,1791777683176,"mousemove"],["move",365,438,1791777683177,"mousemove"],["move",358,437,1791777683178,"pointermove"],["move",356,437,1791777683179,"pointermove"],["move",355,436,1791777683180,"mousemove"],["move",349,436,1791777683181,"mousemove"],["move",347,435,1791777683182,"pointermove"],["move",346,435,1791777683183,"pointermove"],["move",342,435,1791777683184,"pointermove"],["move",340,434,1791777683185,"pointermove"],["move",334,433,1791777683186,"pointermove"],["move",332,433,1791777683187,"pointermove"],["move",327,432,1791777683188,"pointermove"],["move",325,431,1791777683189,"pointermove"],["move",323,431,1791777683190,"mousemove"],["move",317,430,1791777683191,"pointermove"],["move",313,429,1791777683192,"pointermove"],["move",313,428,1791777683193,"mousemove"],["move",306,428,1791777683195,"pointermove"],["move",304,427,1791777683196,"pointermove"],["move",300,427,1791777683198,"pointermove"],["move",293,426,1791777683199,"pointermove"],["move",291,425,1791777683201,"pointermove"],["move",290,425,1791777683202,"pointermove"],["move",286,424,1791777683203,"pointermove"],["move",281,423,1791777683205,"pointermove"],["move",273,422,1791777683208,"pointermove"],["move",270,421,1791777683210,"pointermove"],["move",268,421,1791777683211,"pointermove"],["move",262,420,1791777683213,"pointermove"],["move",258,419,1791777683214,"pointermove"],["move",256,419,1791777683216,"pointermove"],["move",252,418,1791777683217,"pointermove"],["move",251,418,1791777683218,"mousemove"],["move",248,417,1791777683220,"pointermove"],["move",244,417,1791777683221,"pointermove"],["move",242,416,1791777683222,"pointermove"],["move",242,416,1791777683223,"pointermove"],["move",238,415,1791777683226,"pointermove"],["move",234,415,1791777683227,"pointermove"],["move",231,414,1791777683228,"pointermove"],["move",227,413,1791777683231,"pointermove"],["move",226,413,1791777683232,"pointermove"],["move",224,413,1791777683234,"pointermove"],["move",223,412,1791777683235,"pointermove"],["move",222,412,1791777683237,"pointermove"],["move",221,412,1791777683238,"pointermove"],["move",220,412,1791777683239,"mousemove"],["move",220,411,1791777683240,"pointermove"],["move",218,411,1791777683241,"pointermove"],["move",218,411,1791777683242,"pointermove"],["move",216,411,1791777683245,"pointermove"],["move",216,410,1791777683246,"mousemove"],["move",216,409,1791777683356,"pointermove"],["focus",1791777683384],["focus",1791777683384],["down",216,409,1791777683386,"pointerdown"],["focus",1791777683387],["move",216,409,1791777683390,"mousemove"],["up",216,409,1791777683453,"pointerup"],["move",216,409,1791777683507,"pointermove"],["move",216,407,1791777683516,"pointermove"],["move",216,407,1791777683518,"pointermove"],["move",216,405,1791777683523,"pointermove"],["move",216,405,1791777683525,"pointermove"],["move",216,403,1791777683532,"pointermove"],["move",216,403,1791777683535,"pointermove"],["move",216,401,1791777683537,"pointermove"],["move",216,401,1791777683539,"pointermove"],["move",216,399,1791777683548,"pointermove"],["move",216,397,1791777683551,"pointermove"],["move",216,397,1791777683558,"pointermove"],["move",216,395,1791777683563,"pointermove"],["move",216,395,1791777683591,"pointermove"],["down",216,395,1791777683602,"pointerdown"],["focus",1791777683602],["move",215,394,1791777683607,"mousemove"],["up",216,395,1791777683672,"pointerup"],["move",216,395,1791777683712,"pointermove"],["move",218,395,1791777683727,"pointermove"],["move",219,395,1791777683729,"pointermove"],["move",220,395,1791777683737,"pointermove"],["move",221,395,1791777683741,"pointermove"],["move",222,395,1791777683748,"pointermove"],["move",222,395,1791777683757,"pointermove"],["move",222,396,1791777683761,"pointermove"],["move",223,396,1791777683763,"pointermove"],["move",224,397,1791777683768,"pointermove"],["move",225,397,1791777683770,"pointermove"],["move",225,397,1791777683771,"pointermove"],["move",225,398,1791777683773,"pointermove"],["move",226,399,1791777683780,"pointermove"],["move",227,400,1791777683782,"pointermove"],["move",228,401,1791777683787,"pointermove"],["move",229,402,1791777683789,"pointermove"],["move",230,402,1791777683792,"pointermove"],["move",231,403,1791777683794,"pointermove"],["move",231,403,1791777683795,"mousemove"],["move",231,404,1791777683797,"pointermove"],["move",234,405,1791777683802,"pointermove"],["move",234,406,1791777683803,"pointermove"],["move",235,407,1791777683806,"pointermove"],["move",235,406,1791777683807,"mousemove"],["move",236,408,1791777683809,"pointermove"],["move",237,409,1791777683810,"pointermove"],["move",238,409,1791777683815,"pointermove"],["move",240,410,1791777683817,"pointermove"],["move",241,411,1791777683818,"pointermove"],["move",242,411,1791777683821,"pointermove"],["move",244,412,1791777683822,"pointermove"],["move",244,413,1791777683824,"pointermove"],["move",245,413,1791777683825,"pointermove"],["move",246,413,1791777683827,"pointermove"],["move",247,414,1791777683828,"pointermove"],["move",248,414,1791777683829,"pointermove"],["move",250,415,1791777683833,"pointermove"],["move",259,419,1791777683851,"pointermove"],["move",260,419,1791777683853,"pointermove"],["move",261,420,1791777683854,"pointermove"],["move",262,421,1791777683863,"pointermove"],["move",263,421,1791777683864,"pointermove"],["move",263,421,1791777683867,"pointermove"],["move",264,421,1791777683872,"pointermove"],["move",264,422,1791777683876,"pointermove"],["move",266,423,1791777683889,"pointermove"],["move",266,423,1791777683895,"pointermove"],["move",267,423,1791777683897,"pointermove"],["move",267,423,1791777683902,"pointermove"],["move",268,424,1791777683904,"pointermove"],["move",268,424,1791777683907,"pointermove"],["move",269,424,1791777683909,"pointermove"],["move",270,425,1791777683914,"pointermove"],["move",270,425,1791777683916,"pointermove"],["move",271,425,1791777683918,"pointermove"],["move",272,426,1791777683919,"pointermove"],["move",272,426,1791777683921,"pointermove"],["move",273,426,1791777683922,"pointermove"],["move",274,427,1791777683926,"pointermove"],["move",275,427,1791777683927,"pointermove"],["move",277,427,1791777683929,"pointermove"],["move",278,428,1791777683930,"pointermove"],["move",279,429,1791777683932,"pointermove"],["move",281,429,1791777683935,"pointermove"],["move",281,429,1791777683936,"mousemove"],["move",282,429,1791777683937,"pointermove"],["move",283,429,1791777683938,"pointermove"],["move",284,430,1791777683940,"pointermove"],["move",285,430,1791777683942,"pointermove"],["move",288,431,1791777683945,"pointermove"],["move",290,432,1791777683947,"pointermove"],["move",290,432,1791777683948,"pointermove"],["move",292,433,1791777683949,"pointermove"],["move",292,433,1791777683951,"pointermove"],["move",294,433,1791777683953,"pointermove"],["move",295,433,1791777683954,"mousemove"],["move",296,433,1791777683955,"pointermove"],["move",298,434,1791777683956,"pointermove"],["move",298,434,1791777683958,"pointermove"],["move",300,435,1791777683960,"pointermove"],["move",300,435,1791777683968,"pointermove"],["move",306,436,1791777683969,"pointermove"],["move",308,437,1791777683972,"pointermove"],["move",309,437,1791777683975,"pointermove"],["move",310,437,1791777683977,"pointermove"],["move",310,438,1791777683982,"pointermove"],["move",311,438,1791777683985,"pointermove"],["move",312,439,1791777684015,"pointermove"],["move",312,440,1791777684017,"pointermove"],["move",313,442,1791777684047,"pointermove"],["move",314,443,1791777684053,"pointermove"],["move",315,443,1791777684081,"pointermove"],["move",316,443,1791777684099,"pointermove"],["move",316,442,1791777684100,"mousemove"],["move",317,443,1791777684223,"pointermove"],["move",318,443,1791777684272,"pointermove"],["move",318,444,1791777684276,"pointermove"],["move",318,444,1791777684279,"pointermove"],["move",318,445,1791777684298,"pointermove"],["move",318,446,1791777684300,"pointermove"],["move",319,447,1791777684312,"pointermove"],["move",319,447,1791777684328,"pointermove"],["move",319,448,1791777684338,"pointermove"],["move",319,449,1791777684349,"pointermove"],["move",319,450,1791777684380,"pointermove"],["down",319,450,1791777684482,"pointerdown"],["focus",1791777684483],["up",319,450,1791777684577,"pointerup"],["focus",1791777684589],["move",318,451,1791777684748,"pointermove"],["move",318,451,1791777684749,"pointermove"],["move",318,452,1791777684754,"pointermove"],["move",316,453,1791777684763,"pointermove"],["move",316,453,1791777684766,"pointermove"],["move",316,454,1791777684771,"pointermove"],["move",316,455,1791777684780,"pointermove"],["move",314,455,1791777684785,"pointermove"],["move",314,456,1791777684787,"pointermove"],["move",314,457,1791777684794,"pointermove"],["move",313,457,1791777684799,"pointermove"],["move",312,458,1791777684806,"pointermove"],["move",312,459,1791777684813,"pointermove"],["move",310,459,1791777684818,"pointermove"],["move",310,460,1791777684820,"pointermove"],["move",310,460,1791777684822,"pointermove"],["move",308,460,1791777684827,"pointermove"],["move",308,461,1791777684832,"pointermove"],["move",308,461,1791777684833,"pointermove"],["move",307,462,1791777684836,"pointermove"],["move",306,462,1791777684839,"pointermove"],["move",306,462,1791777684841,"pointermove"],["move",304,462,1791777684846,"pointermove"],["move",304,463,1791777684851,"pointermove"],["move",302,463,1791777684855,"pointermove"],["move",302,463,1791777684856,"pointermove"],["move",300,463,1791777684860,"pointermove"],["move",300,463,1791777684865,"pointermove"],["move",298,464,1791777684867,"pointermove"],["move",298,465,1791777684872,"pointermove"],["move",296,465,1791777684874,"pointermove"],["move",296,465,1791777684879,"pointermove"],["move",295,465,1791777684881,"pointermove"],["move",294,465,1791777684884,"pointermove"],["move",294,466,1791777684886,"pointermove"],["move",294,466,1791777684888,"pointermove"],["move",292,467,1791777684900,"pointermove"],["move",292,467,1791777684902,"pointermove"],["move",292,468,1791777684905,"pointermove"],["move",290,469,1791777684909,"pointermove"],["move",290,470,1791777684912,"pointermove"],["move",290,470,1791777684914,"pointermove"],["move",289,471,1791777684921,"pointermove"],["move",289,472,1791777684924,"pointermove"],["move",289,473,1791777684928,"pointermove"],["move",288,474,1791777684933,"pointermove"],["move",288,475,1791777684939,"pointermove"],["move",288,475,1791777684940,"pointermove"],["move",288,476,1791777684942,"pointermove"],["move",288,477,1791777684952,"pointermove"],["move",288,478,1791777684958,"pointermove"],["move",288,479,1791777684968,"pointermove"],["move",288,480,1791777684971,"pointermove"],["move",288,481,1791777684975,"pointermove"],["move",288,482,1791777684985,"pointermove"],["move",288,483,1791777684992,"pointermove"],["move",288,484,1791777684994,"pointermove"],["move",288,485,1791777685001,"pointermove"],["move",288,486,1791777685008,"pointermove"],["move",289,487,1791777685015,"pointermove"],["move",289,487,1791777685018,"pointermove"],["move",290,488,1791777685022,"pointermove"],["move",291,489,1791777685025,"pointermove"],["move",292,489,1791777685027,"pointermove"],["move",292,489,1791777685030,"pointermove"],["move",293,489,1791777685034,"pointermove"],["move",294,489,1791777685038,"pointermove"],["move",295,490,1791777685039,"pointermove"],["move",296,491,1791777685045,"pointermove"],["move",297,491,1791777685046,"pointermove"],["move",298,491,1791777685048,"pointermove"],["move",299,492,1791777685051,"pointermove"],["move",300,492,1791777685054,"pointermove"],["move",301,493,1791777685055,"pointermove"],["move",303,493,1791777685058,"pointermove"],["move",304,493,1791777685060,"pointermove"],["move",305,493,1791777685062,"pointermove"],["move",307,493,1791777685065,"pointermove"],["move",308,493,1791777685067,"pointermove"],["move",309,493,1791777685068,"pointermove"],["move",310,493,1791777685071,"pointermove"],["move",311,493,1791777685072,"pointermove"],["move",313,493,1791777685074,"pointermove"],["move",314,494,1791777685077,"pointermove"],["move",316,494,1791777685079,"pointermove"],["move",316,494,1791777685080,"pointermove"],["move",318,495,1791777685081,"pointermove"],["move",318,495,1791777685082,"pointermove"],["move",320,495,1791777685084,"pointermove"],["move",321,495,1791777685086,"pointermove"],["move",323,495,1791777685088,"pointermove"],["move",325,495,1791777685091,"pointermove"],["move",326,496,1791777685093,"pointermove"],["move",327,496,1791777685094,"pointermove"],["move",328,496,1791777685095,"pointermove"],["move",329,496,1791777685096,"pointermove"],["move",330,496,1791777685098,"pointermove"],["move",331,496,1791777685099,"pointermove"],["move",332,497,1791777685101,"pointermove"],["move",334,497,1791777685102,"pointermove"],["move",335,497,1791777685103,"pointermove"],["move",337,497,1791777685105,"pointermove"],["move",338,498,1791777685107,"pointermove"],["move",339,498,1791777685108,"pointermove"],["move",340,499,1791777685109,"pointermove"],["move",341,499,1791777685111,"pointermove"],["move",343,499,1791777685112,"pointermove"],["move",344,499,1791777685114,"pointermove"],["move",345,498,1791777685115,"mousemove"],["move",346,499,1791777685117,"pointermove"],["move",347,499,1791777685118,"pointermove"],["move",348,499,1791777685119,"pointermove"],["move",349,499,1791777685120,"pointermove"],["move",350,500,1791777685121,"pointermove"],["move",352,501,1791777685124,"pointermove"],["move",352,501,1791777685125,"pointermove"],["move",353,501,1791777685126,"pointermove"],["move",355,501,1791777685128,"pointermove"],["move",356,502,1791777685131,"pointermove"],["move",356,502,1791777685132,"pointermove"],["move",358,502,1791777685133,"pointermove"],["move",358,502,1791777685134,"pointermove"],["move",359,502,1791777685135,"pointermove"],["move",361,502,1791777685138,"pointermove"],["move",362,502,1791777685141,"pointermove"],["move",363,502,1791777685142,"pointermove"],["move",365,502,1791777685145,"pointermove"],["move",366,503,1791777685148,"pointermove"],["move",367,503,1791777685149,"pointermove"],["move",368,503,1791777685152,"pointermove"],["move",369,503,1791777685153,"pointermove"],["move",370,504,1791777685157,"pointermove"],["move",370,504,1791777685158,"pointermove"],["move",371,504,1791777685159,"pointermove"],["move",372,505,1791777685161,"pointermove"],["move",373,505,1791777685162,"pointermove"],["move",374,505,1791777685167,"pointermove"],["move",375,505,1791777685168,"pointermove"],["move",376,505,1791777685171,"pointermove"],["move",376,505,1791777685173,"pointermove"],["move",377,505,1791777685174,"pointermove"],["move",378,505,1791777685182,"pointermove"],["move",379,505,1791777685185,"pointermove"],["move",380,505,1791777685194,"pointermove"],["move",381,505,1791777685197,"pointermove"],["move",382,505,1791777685211,"pointermove"],["move",383,505,1791777685220,"pointermove"],["move",384,505,1791777685229,"pointermove"],["move",385,505,1791777685244,"pointermove"],["down",385,505,1791777685307,"pointerdown"],["move",385,505,1791777685309,"mousemove"],["up",385,505,1791777685661,"pointerup"]]
+        var i = new Te()
+        // 轨迹加密后的值
+        var e = i["$_HDl"](i["$_BHIh"](trajectory))
+        var t = i["$_HDl"]("")
+        // 写死即可
+        var n = '-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1magic data-1'
+        var passtime = Math.floor(Math.random() * (9870 - 6000 + 1)) + 6000
+        var o_tostring = "function o(e,t){var $_CFGDn=Vwtrj.$_CV,$_CFGCS=['$_CFGGc'].concat($_CFGDn),$_CFGE_=$_CFGCS[1];$_CFGCS.shift();var $_CFGFg=$_CFGCS[0];function n(e){var $_DDHGX=Vwtrj.$_DD()[3][19];for(;$_DDHGX!==Vwtrj.$_DD()[6][16];){switch($_DDHGX){case Vwtrj.$_DD()[15][19]:var t=5381,n=e[$_CFGE_(71)],r=0;$_DDHGX=Vwtrj.$_DD()[9][18];break;case Vwtrj.$_DD()[12][18]:while(n--)t=(t<<5)+t+e[$_CFGE_(49)](r++);$_DDHGX=Vwtrj.$_DD()[12][17];break;case Vwtrj.$_DD()[9][17]:return t&=~(1<<31);break;}}}100<new Date()[$_CFGE_(209)]()-t[$_CFGDn(209)]()&&(e=$_CFGE_(1108)),r=$_CFGDn(732)+i[$_CFGDn(1150)]+$_CFGE_(1194)+n(o[$_CFGE_(47)]()+n(n[$_CFGDn(47)]())+n(e[$_CFGE_(47)]()))+$_CFGE_(1103);}"
+        var n_tostring = 'function n(e){var $_DDHGX=Vwtrj.$_DD()[3][19];for(;$_DDHGX!==Vwtrj.$_DD()[6][16];){switch($_DDHGX){case Vwtrj.$_DD()[15][19]:var t=5381,n=e[$_CFGE_(71)],r=0;$_DDHGX=Vwtrj.$_DD()[9][18];break;case Vwtrj.$_DD()[12][18]:while(n--)t=(t<<5)+t+e[$_CFGE_(49)](r++);$_DDHGX=Vwtrj.$_DD()[12][17];break;case Vwtrj.$_DD()[9][17]:return t&=~(1<<31);break;}}}'
+        var data = {
+            // 固定写死没问题
+            "lang": "zh-cn",
+            "type": "fullpage",
+            "vip_order": -1,
+            "ct": -1,
+            "tsfq": "xovrayel",
+            "light": -1,  // "INPUT_0|DIV_1|INPUT_2"
+
+            "tt": tt(e, c, s), // "MA(*((/1((jMB(("
+            "s":  H(p["$_HDl"](t)), // c7c3e21112fe4f741921cb3e4ff9f7cb
+            "h": H(p["$_HDl"](n)), // "321f9af1e098233dbd03f250fd2b5e21"
+            "hh": H(n), // "39bd9cad9e425c3a8f51610fd506e3b3",
+            "hi": H($_ccccc['i']), //"09eb21b3ae9542a9bc1e8b63b3d9a467",
+
+            // 写死即可
+            "ep": {
+                // 无感验证版本号
+                "v": "9.2.0-guwyxh",
+                "te": false,
+                "$_BBn": true,
+                "ven": "Google Inc. (Microsoft)",
+                "ren": randomANGLE(), // "ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+                "fp": [
+                    "move",
+                    138,
+                    453,
+                    1791683835767,
+                    "pointermove"
+                ],
+                "lp": [
+                    "up",
+                    337,
+                    507,
+                    1791683837499,
+                    "pointerup"
+                ],
+                "em": {
+                    "ph": 0,
+                    "cp": 0,
+                    "ek": "11",
+                    "wd": 1,
+                    "nt": 0,
+                    "si": 0,
+                    "sc": 0
+                },
+                "tm": {
+                    "a": 1791683824218,
+                    "b": 1791683824370,
+                    "c": 1791683824370,
+                    "d": 0,
+                    "e": 0,
+                    "f": 1791683824219,
+                    "g": 1791683824224,
+                    "h": 1791683824226,
+                    "i": 1791683824227,
+                    "j": 1791683824316,
+                    "k": 1791683824268,
+                    "l": 1791683824316,
+                    "m": 1791683824359,
+                    "n": 1791683824396,
+                    "o": 1791683824372,
+                    "p": 1791683826519,
+                    "q": 1791683826519,
+                    "r": 1791683826520,
+                    "s": 1791683826521,
+                    "t": 1791683826521,
+                    "u": 1791683826521
+                },
+                "dnf": "dnf",
+                "by": 2
+            },
+            "passtime": passtime,
+            "rp": H(gt + challenge + passtime),  // "25e2403e95627c683082c893c41af7de",
+            "captcha_token": n_n(o_tostring + n_n(n_tostring) + n_n("bbOy"))  // "34974412",
+        }
+        return p["$_HEJ"]($_BFr()["encrypt"](JSON.stringify(data), aes_key))
     }
 })(window)
 
@@ -1438,13 +2098,17 @@ typeof window == "undefined" ? window = global : null;
 执行环境：Node / 浏览器
 补环境：无须补环境
 扣代码的日期：2026-10-11
-代码更新日期：2026-10-11
-
-逆向完成，待验证参数，需要稳定的无感验证网站
+代码更新日期：2026-10-12
 */
 
 console.log("接口一提交 -> ", w_wind_1())
 
-var r = '{"lang":"zh-cn","type":"fullpage","tt":"MA(*((/1((jMB((","light":-1,"s":"c7c3e21112fe4f741921cb3e4ff9f7cb","h":"321f9af1e098233dbd03f250fd2b5e21","hh":"39bd9cad9e425c3a8f51610fd506e3b3","hi":"09eb21b3ae9542a9bc1e8b63b3d9a467","vip_order":-1,"ct":-1,"ep":{"v":"9.2.0-guwyxh","te":false,"$_BBn":true,"ven":"Google Inc. (Microsoft)","ren":"ANGLE (Microsoft, Microsoft Basic Render Driver (0x0000008C) Direct3D11 vs_5_0 ps_5_0, D3D11)","fp":["move",138,453,1791683835767,"pointermove"],"lp":["up",337,507,1791683837499,"pointerup"],"em":{"ph":0,"cp":0,"ek":"11","wd":1,"nt":0,"si":0,"sc":0},"tm":{"a":1791683824218,"b":1791683824370,"c":1791683824370,"d":0,"e":0,"f":1791683824219,"g":1791683824224,"h":1791683824226,"i":1791683824227,"j":1791683824316,"k":1791683824268,"l":1791683824316,"m":1791683824359,"n":1791683824396,"o":1791683824372,"p":1791683826519,"q":1791683826519,"r":1791683826520,"s":1791683826521,"t":1791683826521,"u":1791683826521},"dnf":"dnf","by":2},"passtime":7654,"rp":"25e2403e95627c683082c893c41af7de","captcha_token":"34974412","tsfq":"xovrayel"}'
-console.log("接口二验证 ->  ", w_wind_2(r))
+// 写死即可
+var c = [12, 58, 98, 36, 43, 95, 62, 15, 12]
+var s = Array.from({ length: 8 }, () => Math.floor(Math.random() * 9) + 1).join('');
+
+// 填写接口返回的内容(也可写死，并非强校验)
+var gt = "cb25522b383a44c171e2e6566654c18f"
+var challenge = "d3863ef34e909121a7189476fff50358" 
+console.log("接口二验证 ->  ", w_wind_2(c, s, gt, challenge))
 

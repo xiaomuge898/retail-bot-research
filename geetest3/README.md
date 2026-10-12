@@ -53,6 +53,7 @@
 |逆向更新日期|参数|版本|位数|传送|
 |--|:--:|--|:--:|--|
 |2026-10-11|w|v7.9.3|无固定|[w-slide-v7.9.3.js](./w/w-slide-v7.9.3.js)|
+|2026-10-12|w*2|v9.2.0|无固定|[w-fullpage-v9.2.0.js](./w/w-fullpage-v9.2.0.js)|
 
 ### 图片还原脚本
 
@@ -150,5 +151,35 @@ function w_slide(data){
     return h + u
 }
 ```
+
+</details>
+
+
+
+<details>
+
+<summary>🔧 无感 fullpage 版本兼容：v9.2.0</summary>
+
+#### 此版本无感验证通过，可使用下方代码生成 `w` 参数
+
+`注意：由于官方对 gt、challenge 并不是强校验，下面所以的参数都可以写死，直接生成结果使用即可`
+
+```js
+// 第一次 w 参数结果，用于提交aes的密钥，没其他用途，无须传参
+console.log("接口一提交 -> ", w_wind_1())
+
+// 写死即可
+var c = [12, 58, 98, 36, 43, 95, 62, 15, 12]
+var s = Array.from({ length: 8 }, () => Math.floor(Math.random() * 9) + 1).join('');
+
+// 填写接口返回的内容(也可写死，并非强校验)
+var gt = "cb25522b383a44c171e2e6566654c18f"
+var challenge = "d3863ef34e909121a7189476fff50358" 
+// 第二次 w 参数结果，据我分析，这个参数是弱校验，只要数据没问题就给放行，哪怕是写死的参数，也可以正常使用
+console.log("接口二验证 ->  ", w_wind_2(c, s, gt, challenge))
+```
+
+- demo 测试脚本 [`demo-fullpage.9.2.0.py`](./py_script/) 可以自行测试
+
 
 </details>
