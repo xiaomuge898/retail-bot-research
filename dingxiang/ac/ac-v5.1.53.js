@@ -1566,7 +1566,6 @@ Zr["prototype"]["reload"] = function(a) {
             };
             continue;
         case 1:
-            this["start"]();
             continue;
         case 2:
             this["_sa"] = [];
